@@ -1,0 +1,8 @@
+git clone https://github.com/musadhiq/cloud_data_de-duplication.git
+cd cloud_data_de-duplication
+py -3 -m venv .venv
+.venv\scripts\activate
+python -m pip install --upgrade pip
+python -m pip install pymysql flask
+cd src
+python -m flask run
