@@ -1,12 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>home</title>
-  </head>
-  <body>
-    <a href="/login">Login</a>
-  </body>
-</html>
+{% extends "base.html" %}
+
+{% block title %} Login {% endblock %}
+{% block page_content %}
+<div id="app">
+  <div class="home">
+    <div class="left">
+      <image src="{{url_for('static',filename = 'images/cloud.jpg')}}"  alt="cloud">
+    </div>
+    <div class="right">
+      <h1 class="form-head">Login</h1>
+      <p class="txt">Sign in to continue</p>
+      <form action="login" method="post">
+        <p>
+          <label for="username">USERNAME </label>
+          <input type="text" name="username" id="username" />
+        </p>
+        <p>
+          <label for="password">PASSWORD </label>
+          <input type="password" name="password" id="password" />
+          <span class="view-pass"><i class="fa-solid fa-eye" id="eye"></i></span>
+        </p>
+        <input type="submit" value="SignIn" />
+      </form>
+      {% for message in get_flashed_messages() %}
+      <div class="alert-error">Error :  {{ message }}</div>
+    {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

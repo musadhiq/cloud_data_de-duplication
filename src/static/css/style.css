@@ -1,0 +1,105 @@
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.home .left {
+  height: 100vh;
+  width: 50%;
+  color: white;
+  background-color: #191818;
+  -webkit-clip-path: circle(95% at 0 50%);
+  clip-path: circle(95% at 0 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home .left img {
+  width: 80%;
+  height: 80%;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.home .right {
+  height: 100vh;
+  width: 48%;
+  padding: 10%;
+  text-align: center;
+}
+.home .right .form-head {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+.home .right p.txt {
+  color: #8f8e8e;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+.home .right form {
+  margin-top: 2.5rem;
+}
+.home .right form .alert-error {
+  font-size: 0.8rem;
+  padding: 19px;
+  color: red;
+}
+.home .right form p {
+  position: relative;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+}
+.home .right form p label {
+  font-size: 0.8rem;
+  letter-spacing: 2.5px;
+  margin: 10px 0;
+  color: #191818;
+}
+.home .right form p input[type="text"],
+.home .right form p input[type="password"] {
+  font-size: 1rem;
+  padding: 12px;
+  letter-spacing: 1px;
+  border-radius: 7px;
+  outline: none;
+  border: none;
+  background-color: #ececec;
+}
+.home .right form p .view-pass {
+  position: absolute;
+  right: 20px;
+  top: 53px;
+}
+.home .right form p .view-pass i {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.home .right form p .view-pass .focused {
+  opacity: 1;
+}
+.home .right form input[type="submit"] {
+  cursor: pointer;
+  margin-top: 2rem;
+  font-size: 1rem;
+  padding: 12px 30px;
+  letter-spacing: 1px;
+  border-radius: 7px;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: #191818;
+} /*# sourceMappingURL=style.css.map */

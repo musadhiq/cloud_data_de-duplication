@@ -3,26 +3,24 @@ from src.dbconnection import *
 from src.templates import *
 
 app = Flask(__name__)
+app.secret_key = "anystringhere"
+
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
 
-@app.route('/login')
+@app.route('/login', methods=['post', 'get'])
 def login():
-    return render_template("login.html")
-
-
-@app.route('/login_1', methods=['post', 'get'])
-def login_1():
-    username = request.form['textfield']
-    password = request.form['textfield2']
+    username = request.form['username']
+    password = request.form['password']
     qry = "SELECT * FROM `login` WHERE `uname`=%s AND `password`=%s"
     val = (username, password)
     res = selectone(qry, val)
     if res is None:
-        return '''<script>alert("invalid"); window.location="/"</script>'''
+        flash("incorrect username or password.")
+        return '''<script>window.location="/";</script>'''
     elif res['type'] == 'admin':
         return '''<script>alert("welcome to admin");window.location="/admin_home"</script>'''
     elif res['type'] == 'leader':
@@ -30,7 +28,8 @@ def login_1():
     elif res['type'] == 'member':
         return '''<script>alert("welcome to member");window.location="/member"</script>'''
     else:
-        return '''<script>alert("invalid data");window.location="/"</script>'''
+        flash("incorrect username or password.")
+        return '''<script>window.location="/";</script>'''
 
 
 @app.route('/admin_home')
