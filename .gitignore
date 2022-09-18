@@ -1,0 +1,12 @@
+.venv
+/.venv
+.idea
+/.idea
+.vscode
+/.vscode
+.vs
+/.vs
+/__pycache__
+__pycache__
+.inspectionProfiles
+/inspectionProfiles
