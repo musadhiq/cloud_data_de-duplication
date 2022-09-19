@@ -5,8 +5,7 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .home {
@@ -19,18 +18,17 @@ body {
   height: 100vh;
   width: 50%;
   color: white;
-  background-color: #191818;
+  background-color: #2b2f42;
   -webkit-clip-path: circle(95% at 0 50%);
-  clip-path: circle(95% at 0 50%);
+          clip-path: circle(95% at 0 50%);
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.home .left img {
-  width: 80%;
-  height: 80%;
-  -o-object-fit: contain;
-  object-fit: contain;
+.home .left .welcome {
+  font-size: 4rem;
+  font-weight: 500;
+  letter-spacing: 5px;
 }
 .home .right {
   height: 100vh;
@@ -67,10 +65,10 @@ body {
   font-size: 0.8rem;
   letter-spacing: 2.5px;
   margin: 10px 0;
-  color: #191818;
+  color: #2b2f42;
 }
-.home .right form p input[type="text"],
-.home .right form p input[type="password"] {
+.home .right form p input[type=text],
+.home .right form p input[type=password] {
   font-size: 1rem;
   padding: 12px;
   letter-spacing: 1px;
@@ -91,7 +89,7 @@ body {
 .home .right form p .view-pass .focused {
   opacity: 1;
 }
-.home .right form input[type="submit"] {
+.home .right form input[type=submit] {
   cursor: pointer;
   margin-top: 2rem;
   font-size: 1rem;
@@ -101,5 +99,5 @@ body {
   outline: none;
   border: none;
   color: white;
-  background-color: #191818;
-} /*# sourceMappingURL=style.css.map */
+  background-color: #2b2f42;
+}/*# sourceMappingURL=style.css.map */

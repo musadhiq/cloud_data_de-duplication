@@ -1,0 +1,90 @@
+* {
+  padding: 0%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+#dashboard {
+  background-color: #2b2f42;
+  color: #fff;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 70px auto;
+  gap: 40px;
+}
+#dashboard aside {
+  background-color: #353a50;
+}
+#dashboard aside ul {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 30px;
+  justify-content: space-between;
+}
+#dashboard .admin-dash {
+  margin: 20px 0;
+}
+#dashboard .admin-dash .top .user {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+#dashboard .admin-dash .top .user img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+#dashboard .admin-dash .top .user .name {
+  font-size: 1rem;
+  font-weight: 500;
+}
+#dashboard .admin-dash .top .head {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+#dashboard .admin-dash .content ul.items {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+#dashboard .admin-dash .content ul.items li.item {
+  width: 230px;
+  height: 160px;
+  background-color: #353a50;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+#dashboard .admin-dash .content ul.items li.item a p {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+#dashboard .admin-dash .content ul.items li.item a p::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: rgb(131, 58, 180);
+  background: linear-gradient(180deg, #c33764 0%, #1d2671 100%);
+  margin-right: 10px;
+}
+#dashboard .admin-dash .content ul.items li.item a i {
+  font-size: 4rem;
+  padding: 30px 50px;
+}
+#dashboard .admin-dash .content ul.items li.item a i.red {
+  color: red;
+}/*# sourceMappingURL=Admin.css.map */
