@@ -32,47 +32,47 @@ ol {
   padding: 30px;
   justify-content: space-between;
 }
-#dashboard .admin-dash {
+#dashboard .dash {
   margin: 20px 0;
 }
-#dashboard .admin-dash .top .user {
+#dashboard .dash .top .user {
   display: flex;
   align-items: center;
   padding: 10px;
 }
-#dashboard .admin-dash .top .user img {
+#dashboard .dash .top .user img {
   width: 35px;
   height: 35px;
   border-radius: 50%;
   margin-right: 10px;
 }
-#dashboard .admin-dash .top .user .name {
+#dashboard .dash .top .user .name {
   font-size: 1rem;
   font-weight: 500;
 }
-#dashboard .admin-dash .top .head {
+#dashboard .dash .top .head {
   margin-top: 30px;
   margin-bottom: 15px;
   font-size: 2rem;
   font-weight: 600;
 }
-#dashboard .admin-dash .content ul.items {
+#dashboard .dash .content ul.items {
   display: flex;
-  gap: 30px;
+  gap: 20px;
   flex-wrap: wrap;
 }
-#dashboard .admin-dash .content ul.items li.item {
+#dashboard .dash .content ul.items li.item {
   width: 230px;
   height: 160px;
   background-color: #353a50;
   border-radius: 10px;
   padding: 10px 20px;
 }
-#dashboard .admin-dash .content ul.items li.item a p {
+#dashboard .dash .content ul.items li.item a p {
   font-size: 0.9rem;
   font-weight: 500;
 }
-#dashboard .admin-dash .content ul.items li.item a p::before {
+#dashboard .dash .content ul.items li.item a p::before {
   content: "";
   display: inline-block;
   width: 12px;
@@ -81,10 +81,10 @@ ol {
   background: linear-gradient(180deg, #c33764 0%, #1d2671 100%);
   margin-right: 10px;
 }
-#dashboard .admin-dash .content ul.items li.item a i {
+#dashboard .dash .content ul.items li.item a i {
   font-size: 4rem;
   padding: 30px 50px;
 }
-#dashboard .admin-dash .content ul.items li.item a i.red {
+#dashboard .dash .content ul.items li.item a i.red {
   color: red;
 }/*# sourceMappingURL=Admin.css.map */

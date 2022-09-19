@@ -1,41 +1,72 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>leader_home</title>
-</head>
+{% extends "base.html" %} {% block title %} Leader Dashboard {% endblock %} {%
+block page_content %}
 
-<body>
-<form id="form1" name="form1" method="post" action="">
-  <table width="250" border="0" align="center" cellpadding="5">
-    <tr>
-      <td colspan="2"><h1 align="center">Leader Home </h1></td>
-    </tr>
-    <tr>
-      <td colspan="2"><a href="#">Manage Members</a></td>
-    </tr>
-    <tr>
-      <td colspan="2"><a href="#">Works</a></td>
-    </tr>
-    <tr>
-      <td colspan="2"><a href="#">Send Notification</a><a href="#">Doubts</a></td>
-    </tr>
-    
-    <tr>
-      <td colspan="2"><a href="#">Feedback</a></td>
-    </tr>
-    <tr>
-      <td width="115"><a href="#">View Files</a></td>
-      <td width="125"><div align="right"><a href="#">File Upload</a></div></td>
-    </tr>
-    <tr>
-      <td colspan="2"><div align="right">
-        <blockquote>
-          <p><a href="#">LogOut</a></p>
-          </blockquote>
-      </div></td>
-    </tr>
-  </table>
-</form>
-</body>
-</html>
+<div id="dashboard">
+  <aside>
+    <ul>
+      <li>
+        <a href="#"><i class="fa-solid fa-house"></i></a>
+      </li>
+      <li>
+        <a href="#"><i class="fa-solid fa-power-off"></i></a>
+      </li>
+    </ul>
+  </aside>
+  <div class="dash">
+    <div class="top">
+      <div class="user">
+        <img src="https://picsum.photos/70" alt="avatar" class="avatar" />
+        <h3 class="name">Olivia doe</h3>
+      </div>
+      <h1 class="head">Leader Dashboard</h1>
+    </div>
+    <div class="content">
+      <ul class="items">
+        <li class="item">
+          <a href="#">
+            <p>Manage Members</p>
+            <i class="fa-solid fa-users-viewfinder"></i>
+          </a>
+        </li>
+        <li class="item">
+          <a href="#">
+            <p>Add Works</p>
+            <i class="fa-solid fa-file-circle-plus"></i>
+          </a>
+        </li>
+        <li class="item">
+          <a href="#">
+            <p>Assign Works</p>
+            <i class="fa-solid fa-list-check"></i>
+          </a>
+        </li>
+        <li class="item">
+          <a href="#">
+            <p>View Doubts</p>
+            <i class="fa-solid fa-question"></i>
+          </a>
+        </li>
+        <li class="item">
+          <a href="#">
+            <p>Feedbacks</p>
+            <i class="fa-solid fa-comments"></i>
+          </a>
+        </li>
+        <li class="item">
+          <a href="#">
+            <p>Upload Files</p>
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+          </a>
+        </li>
+        <li class="item">
+          <a href="#">
+            <p>View Files</p>
+            <i class="fa-solid fa-folder"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{%endblock%}

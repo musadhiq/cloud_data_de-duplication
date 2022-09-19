@@ -31,7 +31,7 @@ ol {
       justify-content: space-between;
     }
   }
-  .admin-dash {
+  .dash {
     margin: 20px 0;
     .top {
       .user {
@@ -59,7 +59,7 @@ ol {
     .content {
       ul.items {
         display: flex;
-        gap: 30px;
+        gap: 20px;
         flex-wrap: wrap;
         li.item {
           width: 230px;

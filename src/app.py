@@ -22,7 +22,7 @@ def login():
         flash("incorrect username or password.")
         return '''<script>window.location="/";</script>'''
     elif res['type'] == 'admin':
-        return '''<script>alert("welcome to admin");window.location="/admin_home"</script>'''
+        return '''<script>alert("welcome to admin");window.location="/admin"</script>'''
     elif res['type'] == 'leader':
         return '''<script>alert("welcome to leader");window.location="/leader"</script>'''
     elif res['type'] == 'member':
@@ -32,7 +32,7 @@ def login():
         return '''<script>window.location="/";</script>'''
 
 
-@app.route('/admin_home')
+@app.route('/admin')
 def admin_home():
     return render_template("admin_home.html")
 
