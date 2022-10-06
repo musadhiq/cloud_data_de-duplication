@@ -1,0 +1,104 @@
+{% extends "Layout.html" %} {% block user %}
+<div class="top">
+  <div class="user">
+    <img src="https://picsum.photos/70" alt="avatar" class="avatar" />
+    <h3 class="name">John doe</h3>
+  </div>
+</div>
+{% endblock %} {% block heading %}
+<h1 class="head">Add Leader</h1>
+{% endblock %} {% block content %}
+<div class="manage-user">
+  <h1 class="heading">Add Leader</h1>
+  <form action="addLeader" method="post" class="add-leader">
+    <div class="col">
+      <p class="row">
+        <input
+          type="text"
+          name="firstname"
+          id="firstname"
+          placeholder="First Name"
+          required
+        />
+        <label for="firstname">First Name </label>
+      </p>
+      <p class="row">
+        <input
+          type="text"
+          name="lastname"
+          id="lastname"
+          placeholder="Last Name"
+        />
+        <label for="lastname">Last Name </label>
+      </p>
+    </div>
+    <fieldset class="gender-col">
+      <legend>Select Gender:</legend>
+
+      <div>
+        <input type="radio" id="gen1" name="gender" value="male" checked />
+        <label for="male">Male</label>
+      </div>
+
+      <div>
+        <input type="radio" id="gen2" name="gender" value="female" />
+        <label for="female">Female</label>
+      </div>
+
+      <div>
+        <input type="radio" id="gen3" name="gender" value="other" />
+        <label for="other">Other</label>
+      </div>
+    </fieldset>
+    <p class="row">
+      <input type="text" name="place" placeholder="Place" required />
+      <label for="place">Place </label>
+    </p>
+    <div class="col">
+      <p class="row">
+        <input type="text" name="post" placeholder="Post" required />
+        <label for="post">Post </label>
+      </p>
+
+      <p class="row">
+        <input type="number" name="pin" placeholder="Pin Code" required />
+        <label for="pin">Pin Code</label>
+      </p>
+    </div>
+    <div class="col">
+      <p class="row">
+        <input type="email" name="email" placeholder="Email" />
+        <label for="email">Email </label>
+      </p>
+      <p class="row">
+        <input type="tel" name="phone" placeholder="Phone Number" required />
+        <label for="phone">Phone Number</label>
+      </p>
+    </div>
+    <p class="row">
+      <input type="text" name="username" placeholder="UserName" required />
+      <label for="username">UserName </label>
+    </p>
+    <p class="row">
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Password"
+        required
+      />
+      <label for="password">Password </label>
+      <span class="view-pass"
+        ><i class="fa-solid fa-eye pass-show-eye"></i
+      ></span>
+    </p>
+    <!-- {% for message in get_flashed_messages() %}
+    <div class="alert-error">Error : {{ message }}</div>
+    {% endfor %} -->
+    <p class="btn-grp">
+      <input type="reset" value="Clear" />
+      <input type="submit" value="Register" />
+    </p>
+  </form>
+</div>
+{% endblock %}

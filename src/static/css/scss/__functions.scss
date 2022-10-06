@@ -1,0 +1,143 @@
+// add leader
+.manage-user {
+  margin: 50px auto;
+  max-width: 600px;
+  height: 200vh;
+  .heading {
+    position: relative;
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.699);
+    font-weight: 600;
+    padding: 10px;
+    &::after {
+      content: "  ";
+
+      position: absolute;
+      left: 120px;
+      width: 60%;
+      height: 0.5px;
+      background-color: rgba(255, 255, 255, 0.103);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  form {
+    margin-top: 1rem;
+    .alert-error {
+      font-size: 0.8rem;
+
+      padding: 19px;
+      color: red;
+    }
+    .col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    fieldset.gender-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      padding: 8px;
+      border: 0.5px solid rgba(255, 255, 255, 0.425);
+      margin: 5px;
+      border-radius: 5px;
+      legend {
+        padding: 0 10px;
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+      }
+      input {
+        &:checked {
+          background-color: lightblue;
+        }
+      }
+    }
+    p.row {
+      position: relative;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      padding: 6px;
+      label {
+        position: absolute;
+        opacity: 0;
+        transition: 0.4s bottom, 0.5s opacity;
+        bottom: 0;
+        left: 15px;
+        z-index: 1;
+        padding: 1px 10px;
+        font-size: 0.8rem;
+        letter-spacing: 2.5px;
+        background-color: $black;
+        border-radius: 5px;
+      }
+      .gender {
+        opacity: 1;
+        font-size: 0.9rem;
+        position: relative;
+        left: 0;
+      }
+      input {
+        font-size: 0.9rem;
+        padding: 12px;
+        margin: 2px 0;
+        letter-spacing: 1px;
+        border-radius: 5px;
+        outline: none;
+        border: 0.5px solid rgba(255, 255, 255, 0.425);
+        background-color: transparent;
+        color: #fff;
+        &:focus,
+        &.active {
+          border: 1px solid white;
+        }
+        &:focus::placeholder {
+          color: transparent;
+        }
+        &:focus + label,
+        &.active + label {
+          bottom: 70%;
+          opacity: 1;
+        }
+        &:required + label::after {
+          content: "*";
+          color: red;
+        }
+      }
+
+      .view-pass {
+        color: #fff;
+        position: absolute;
+        right: 20px;
+        top: 18px;
+        i {
+          cursor: pointer;
+          opacity: 0.5;
+        }
+        .focused {
+          opacity: 1;
+        }
+      }
+    }
+    .btn-grp {
+      text-align: right;
+      input[type="submit"],
+      input[type="reset"] {
+        cursor: pointer;
+        margin: 0 5px;
+        margin-top: 2rem;
+        font-size: 0.9rem;
+        padding: 8px 16px;
+        letter-spacing: 1px;
+        border-radius: 7px;
+        outline: none;
+        border: none;
+        color: $black;
+        background-color: white;
+      }
+      input[type="reset"] {
+        color: #fff;
+        background-color: red;
+      }
+    }
+  }
+}

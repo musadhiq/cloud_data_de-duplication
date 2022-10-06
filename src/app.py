@@ -34,39 +34,39 @@ def login():
 
 @app.route('/admin')
 def admin_home():
-    return render_template("admin_home.html")
+    return render_template("/admin/admin_home.html")
 
 
-@app.route('/manage_leaders')
+@app.route('/leaders')
 def manage_leaders():
-    return render_template("manage_leaders.html")
+    return render_template("/admin/manage_leaders.html")
 
 
-@app.route('/add_leader')
+@app.route('/leaders/new')
 def add_leader():
-    return render_template("add_leader.html")
+    return render_template("/admin/add_leader.html")
 
 
-@app.route('/edit_leader')
+@app.route('/leaders/edit')
 def edit_leader():
-    return render_template("edit_leader.html")
+    return render_template("/admin/edit_leader.html")
 
 
 @app.route('/complaint')
 def complaint():
-    return render_template("complaint.html")
+    return render_template("/admin/complaint.html")
 
 
 @app.route('/complaint_reply')
 def complaint_reply():
-    return render_template("complaint_reply.html")
+    return render_template("/admin/complaint_reply.html")
 
 
 # Leader
 
 @app.route('/leader')
 def leader():
-    return render_template("/leader_home.html")
+    return render_template("/leader/leader_home.html")
 
 
 @app.route('/leader_works')
@@ -81,12 +81,12 @@ def manage_members():
 
 @app.route('/add_member')
 def add_member():
-    return render_template("/add_member.html")
+    return render_template("/leader/add_member.html")
 
 
 @app.route('/edit_member')
 def edit_member():
-    return render_template("/edit_member.html")
+    return render_template("/leader/edit_member.html")
 
 
 @app.route('/feedback')
@@ -114,7 +114,7 @@ def send_notification():
 
 @app.route('/member')
 def member():
-    return render_template("/member_home.html")
+    return render_template("/member/member_home.html")
 
 
 @app.route('/member_work')

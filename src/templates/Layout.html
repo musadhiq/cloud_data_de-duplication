@@ -1,0 +1,22 @@
+{%extends "base.html"%} {% block title %} Admin Dashboard {% endblock %} {%
+block page_content %}
+<div id="dashboard">
+  <aside>
+    <ul>
+      <li>
+        <a href="#"><i class="fa-solid fa-house"></i></a>
+      </li>
+      <li>
+        <a href="#"><i class="fa-solid fa-power-off"></i></a>
+      </li>
+    </ul>
+  </aside>
+  <div class="dash">
+    <div class="dash-fixed">
+      {% block user %} {% endblock %}
+      <h1 class="head">{% block heading %} {% endblock %}</h1>
+    </div>
+    <div class="content">{% block content %} {% endblock %}</div>
+  </div>
+</div>
+{% endblock %}

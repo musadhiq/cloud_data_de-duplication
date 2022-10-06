@@ -19,12 +19,12 @@ page_content %}
         <p>
           <label for="password">PASSWORD </label>
           <input type="password" name="password" id="password" />
-          <span class="view-pass"
-            ><i class="fa-solid fa-eye" id="eye"></i
+          <span class="view-pass-l"
+            ><i class="fa-solid fa-eye pass-show-eye"></i
           ></span>
         </p>
         {% for message in get_flashed_messages() %}
-        <div class="alert-error">Error : {{ message }}</div>
+        <div class="alert-error error">Error : {{ message }}</div>
         {% endfor %}
         <input type="submit" value="SignIn" />
       </form>

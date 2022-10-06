@@ -6,6 +6,18 @@
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #2b2f42;
+  color: #fff;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
 }
 
 .home {
@@ -13,6 +25,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #fff;
 }
 .home .left {
   height: 100vh;
@@ -35,6 +48,7 @@ body {
   width: 48%;
   padding: 10%;
   text-align: center;
+  background-color: #fff;
 }
 .home .right .form-head {
   font-size: 2rem;
@@ -77,16 +91,17 @@ body {
   border: none;
   background-color: #ececec;
 }
-.home .right form p .view-pass {
+.home .right form p .view-pass-l {
+  color: #2b2f42;
   position: absolute;
   right: 20px;
   top: 53px;
 }
-.home .right form p .view-pass i {
+.home .right form p .view-pass-l i {
   cursor: pointer;
   opacity: 0.5;
 }
-.home .right form p .view-pass .focused {
+.home .right form p .view-pass-l .focused {
   opacity: 1;
 }
 .home .right form input[type=submit] {
@@ -100,4 +115,288 @@ body {
   border: none;
   color: white;
   background-color: #2b2f42;
+}
+
+#dashboard {
+  background-color: #2b2f42;
+  color: #fff;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 70px auto;
+  gap: 40px;
+}
+#dashboard aside {
+  background-color: #353a50;
+  position: relative;
+}
+#dashboard aside ul {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 30px;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+}
+#dashboard .dash {
+  position: relative;
+}
+#dashboard .dash .dash-fixed {
+  padding: 20px 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #2b2f42;
+  width: 100%;
+  z-index: 100;
+}
+#dashboard .dash .top .user {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+#dashboard .dash .top .user img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+#dashboard .dash .top .user .name {
+  font-size: 1rem;
+  font-weight: 500;
+}
+#dashboard .dash .member {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px 0 0;
+}
+#dashboard .dash .member .notifiction i {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.801);
+}
+#dashboard .dash .member .notifiction i.active {
+  color: #fff;
+}
+#dashboard .dash .head {
+  margin-top: 15px;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.918);
+}
+#dashboard .dash .content {
+  margin-top: 30px;
+}
+#dashboard .dash .content ul.items {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+#dashboard .dash .content ul.items li.item {
+  width: 230px;
+  height: 160px;
+  background-color: #353a50;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+#dashboard .dash .content ul.items li.item a p {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+#dashboard .dash .content ul.items li.item a p::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: rgb(131, 58, 180);
+  background: linear-gradient(180deg, #c33764 0%, #1d2671 100%);
+  margin-right: 10px;
+}
+#dashboard .dash .content ul.items li.item a i {
+  font-size: 4rem;
+  padding: 30px 50px;
+}
+#dashboard .dash .content ul.items li.item a i.red {
+  color: red;
+}
+
+.manage-user {
+  margin: 50px auto;
+  max-width: 600px;
+  height: 200vh;
+}
+.manage-user .heading {
+  position: relative;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.699);
+  font-weight: 600;
+  padding: 10px;
+}
+.manage-user .heading::after {
+  content: "  ";
+  position: absolute;
+  left: 120px;
+  width: 60%;
+  height: 0.5px;
+  background-color: rgba(255, 255, 255, 0.103);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.manage-user form {
+  margin-top: 1rem;
+}
+.manage-user form .alert-error {
+  font-size: 0.8rem;
+  padding: 19px;
+  color: red;
+}
+.manage-user form .col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.manage-user form fieldset.gender-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 8px;
+  border: 0.5px solid rgba(255, 255, 255, 0.425);
+  margin: 5px;
+  border-radius: 5px;
+}
+.manage-user form fieldset.gender-col legend {
+  padding: 0 10px;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+}
+.manage-user form fieldset.gender-col input:checked {
+  background-color: lightblue;
+}
+.manage-user form p.row {
+  position: relative;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+}
+.manage-user form p.row label {
+  position: absolute;
+  opacity: 0;
+  transition: 0.4s bottom, 0.5s opacity;
+  bottom: 0;
+  left: 15px;
+  z-index: 1;
+  padding: 1px 10px;
+  font-size: 0.8rem;
+  letter-spacing: 2.5px;
+  background-color: #2b2f42;
+  border-radius: 5px;
+}
+.manage-user form p.row .gender {
+  opacity: 1;
+  font-size: 0.9rem;
+  position: relative;
+  left: 0;
+}
+.manage-user form p.row input {
+  font-size: 0.9rem;
+  padding: 12px;
+  margin: 2px 0;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  outline: none;
+  border: 0.5px solid rgba(255, 255, 255, 0.425);
+  background-color: transparent;
+  color: #fff;
+}
+.manage-user form p.row input:focus, .manage-user form p.row input.active {
+  border: 1px solid white;
+}
+.manage-user form p.row input:focus::-moz-placeholder {
+  color: transparent;
+}
+.manage-user form p.row input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+.manage-user form p.row input:focus::placeholder {
+  color: transparent;
+}
+.manage-user form p.row input:focus + label, .manage-user form p.row input.active + label {
+  bottom: 70%;
+  opacity: 1;
+}
+.manage-user form p.row input:required + label::after {
+  content: "*";
+  color: red;
+}
+.manage-user form p.row .view-pass {
+  color: #fff;
+  position: absolute;
+  right: 20px;
+  top: 18px;
+}
+.manage-user form p.row .view-pass i {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.manage-user form p.row .view-pass .focused {
+  opacity: 1;
+}
+.manage-user form .btn-grp {
+  text-align: right;
+}
+.manage-user form .btn-grp input[type=submit],
+.manage-user form .btn-grp input[type=reset] {
+  cursor: pointer;
+  margin: 0 5px;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  padding: 8px 16px;
+  letter-spacing: 1px;
+  border-radius: 7px;
+  outline: none;
+  border: none;
+  color: #2b2f42;
+  background-color: white;
+}
+.manage-user form .btn-grp input[type=reset] {
+  color: #fff;
+  background-color: red;
+}
+
+.content .users {
+  width: 80%;
+  margin: 0 auto;
+}
+.content .users .user-top {
+  text-align: right;
+}
+.content .users .user-top a.add-leader {
+  background-color: #353a50;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+.content .users .user-top a.add-leader:hover {
+  background-color: #2b2f42;
+  border: 1px solid #353a50;
+}
+.content .users .user-items {
+  margin-top: 20px;
+}
+.content .users .user-items li.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  border-bottom: 0.5px solid #353a50;
+}
+.content .users .user-items li.item .main h1 {
+  font-size: 1.2rem;
+}
+.content .users .user-items li.item .main a {
+  font-size: 0.9rem;
+  color: #ececec;
+}
+.content .users .user-items li.item .actions ul {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }/*# sourceMappingURL=style.css.map */

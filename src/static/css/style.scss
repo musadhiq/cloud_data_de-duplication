@@ -3,18 +3,30 @@
   margin: 0%;
   box-sizing: border-box;
 }
+
+// variables
+@import "./scss/_variables";
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: $bg;
+  color: #fff;
 }
-$black: #2b2f42;
-$grey-text: #8f8e8e;
-$light-grey: #ececec;
+a {
+  color: #fff;
+  text-decoration: none;
+}
+ul,
+ol {
+  list-style: none;
+}
+
 .home {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #fff;
   .left {
     height: 100vh;
     width: 50%;
@@ -24,6 +36,7 @@ $light-grey: #ececec;
     display: flex;
     align-items: center;
     justify-content: center;
+
     // img {
     //   width: 80%;
     //   height: 80%;
@@ -40,6 +53,7 @@ $light-grey: #ececec;
     width: 48%;
     padding: 10%;
     text-align: center;
+    background-color: #fff;
     .form-head {
       font-size: 2rem;
       font-weight: 700;
@@ -80,7 +94,8 @@ $light-grey: #ececec;
           border: none;
           background-color: $light-grey;
         }
-        .view-pass {
+        .view-pass-l {
+          color: $black;
           position: absolute;
           right: 20px;
           top: 53px;
@@ -108,3 +123,11 @@ $light-grey: #ececec;
     }
   }
 }
+
+// admin
+@import "./scss/_dashboard";
+@import "./scss/_functions";
+
+// pages
+
+@import "./scss/_pages";

@@ -1,9 +1,15 @@
 import pymysql
 
+hostname = 'remotemysql.com'
+username = 'Jr1FnFEvhE'
+portnum = 3306
+password = 'zC5EALFrzL'
+dbname = 'Jr1FnFEvhE'
+
 
 def iud(qry, val):
-    con = pymysql.connect(host='sql8.freemysqlhosting.net', port=3306,
-                          user='sql8520543', password='ejdFJsBzC7', db='sql8520543')
+    con = pymysql.connect(host=hostname, port=portnum,
+                          user=username, password=password, db=dbname)
     cmd = con.cursor()
     cmd.execute(qry, val)
     id = cmd.lastrowid
@@ -14,8 +20,8 @@ def iud(qry, val):
 
 
 def selectone(qry, val):
-    con = pymysql.connect(host='sql8.freemysqlhosting.net', port=3306, user='sql8520543',
-                          password='ejdFJsBzC7', db='sql8520543', cursorclass=pymysql.cursors.DictCursor)
+    con = pymysql.connect(host=hostname, port=portnum,
+                          user=username, password=password, db=dbname, cursorclass=pymysql.cursors.DictCursor)
     cmd = con.cursor()
     cmd.execute(qry, val)
     res = cmd.fetchone()
@@ -24,8 +30,8 @@ def selectone(qry, val):
 
 
 def selectall(qry):
-    con = pymysql.connect(host='sql8.freemysqlhosting.net', port=3306, user='sql8520543',
-                          password='ejdFJsBzC7', db='sql8520543', cursorclass=pymysql.cursors.DictCursor)
+    con = pymysql.connect(host=hostname, port=portnum,
+                          user=username, password=password, db=dbname, cursorclass=pymysql.cursors.DictCursor)
     cmd = con.cursor()
     cmd.execute(qry)
     res = cmd.fetchall()
@@ -33,8 +39,8 @@ def selectall(qry):
 
 
 def selectall2(qry, val):
-    con = pymysql.connect(host='sql8.freemysqlhosting.net', port=3306, user='sql8520543',
-                          password='ejdFJsBzC7', db='sql8520543', cursorclass=pymysql.cursors.DictCursor)
+    con = pymysql.connect(host=hostname, port=portnum,
+                          user=username, password=password, db=dbname, cursorclass=pymysql.cursors.DictCursor)
     cmd = con.cursor()
     cmd.execute(qry, val)
     res = cmd.fetchall()

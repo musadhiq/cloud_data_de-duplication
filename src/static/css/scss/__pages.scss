@@ -1,0 +1,50 @@
+//manage users
+
+.content {
+  .users {
+    width: 80%;
+    margin: 0 auto;
+    .user-top {
+      text-align: right;
+      a.add-leader {
+        background-color: $cardbg;
+        padding: 8px 16px;
+        border-radius: 5px;
+        &:hover {
+          background-color: $bg;
+          border: 1px solid $cardbg;
+        }
+      }
+    }
+    .user-items {
+      margin-top: 20px;
+      li.item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 15px;
+        border-bottom: 0.5px solid $cardbg;
+        .main {
+          h1 {
+            font-size: 1.2rem;
+          }
+          a {
+            font-size: 0.9rem;
+            color: $light-grey;
+          }
+        }
+        .actions {
+          ul {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            li.items {
+              a {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
