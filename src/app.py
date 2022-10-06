@@ -1,3 +1,4 @@
+from click import echo
 from flask import *
 from src.dbconnection import *
 from src.templates import *
@@ -22,8 +23,12 @@ def login():
         flash("incorrect username or password.")
         return '''<script>window.location="/";</script>'''
     elif res['type'] == 'admin':
+        id = res['id']
+        session['lid'] = id
         return '''<script>alert("welcome to admin");window.location="/admin"</script>'''
     elif res['type'] == 'leader':
+        id = res['id']
+        session['lid'] = id
         return '''<script>alert("welcome to leader");window.location="/leader"</script>'''
     elif res['type'] == 'member':
         return '''<script>alert("welcome to member");window.location="/member"</script>'''
@@ -37,9 +42,10 @@ def admin_home():
     return render_template("/admin/admin_home.html")
 
 
-@app.route('/leaders')
+@app.route('/manage_leaders')
 def manage_leaders():
-    return render_template("/admin/manage_leaders.html")
+    data = selectall("SELECT id,Fname,Lname,Email FROM `leader`")
+    return render_template("/admin/manage_leaders.html", data=data)
 
 
 @app.route('/leaders/new')
@@ -47,9 +53,60 @@ def add_leader():
     return render_template("/admin/add_leader.html")
 
 
+@app.route('/leaders/new1', methods=['post'])
+def add_leader1():
+    Fname = request.form['firstname']
+    Lname = request.form['lastname']
+    Gender = request.form['gender']
+    Place = request.form['place']
+    Pin = request.form['pin']
+    Post = request.form['post']
+    Email = request.form['email']
+    Phone = request.form['phone']
+    Username = request.form['username']
+    password = request.form['password']
+    qry = "insert into login values(Null,%s,%s,'leader')"
+    val = (Username, password)
+    id = iud(qry, val)
+    qry1 = "insert  into leader values (Null,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+    val1 = (str(id), Fname, Lname, Gender, Place, Pin, Post, Email, Phone)
+    iud(qry1, val1)
+    return '''<script>alert("added");window.location="/manage_leaders"</script>'''
+
+
 @app.route('/leaders/edit')
 def edit_leader():
-    return render_template("/admin/edit_leader.html")
+    id = request.args.get('id')
+    session['id'] = id
+    qry = "SELECT * FROM `leader` WHERE `id`=%s"
+    val = (id)
+    res = selectone(qry, val)
+    return render_template("/admin/edit_leader.html", data=res)
+
+
+@app.route('/leaders/update', methods=['post'])
+def update_leader():
+    Lid = request.form['lid']
+    Fname = request.form['firstname']
+    Lname = request.form['lastname']
+    Gender = request.form['gender']
+    Place = request.form['place']
+    Pin = request.form['pin']
+    Post = request.form['post']
+    Email = request.form['email']
+    Phone = request.form['phone']
+    qry = "update leader set Fname=%s,Lname=%s,Gender=%s,Place=%s,Pin=%s,Post=%s,Email=%s,Phone=%s where id=%s"
+    val = (Fname, Lname, Gender, Place, Pin, Post, Email, Phone, Lid)
+    iud(qry, val)
+    return '''<script>alert("success");window.location="/manage_leaders"</script>'''
+
+
+@app.route('/leaders/delete')
+def delete_leader():
+    id = request.args.get('id')
+    qry = "DELETE FROM `leader` WHERE `id`=%s"
+    iud(qry, id)
+    return '''<script>alert("deleted");window.location="/manage_leaders"</script>'''
 
 
 @app.route('/complaint')

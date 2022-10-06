@@ -13,18 +13,19 @@
     <a href="/leaders/new" class="add-leader">+ add leader</a>
   </div>
   <ul class="user-items">
+    {% for item in data %}
     <li class="item">
       <div class="main">
-        <h1>olivia john</h1>
-        <a href="#">olivia@gmail.com</a>
+        <h1>{{item.Fname}} {{item.Lname}}</h1>
+        <a href="#">{{item.Email}}</a>
       </div>
       <div class="actions">
         <ul>
           <li class="items">
-            <a href="#">edit</a>
+            <a href="leaders/edit?id={{item.id}}">edit</a>
           </li>
           <li class="items">
-            <a href="#">delete</a>
+            <a href="leaders/delete?id={{item.id}}">delete</a>
           </li>
           <li class="items">
             <a href="#">view</a>
@@ -32,177 +33,7 @@
         </ul>
       </div>
     </li>
-    <li class="item">
-      <div class="main">
-        <h1>olivia john</h1>
-        <a href="#">olivia@gmail.com</a>
-      </div>
-      <div class="actions">
-        <ul>
-          <li class="items">
-            <a href="#">edit</a>
-          </li>
-          <li class="items">
-            <a href="#">delete</a>
-          </li>
-          <li class="items">
-            <a href="#">view</a>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li class="item">
-      <div class="main">
-        <h1>olivia john</h1>
-        <a href="#">olivia@gmail.com</a>
-      </div>
-      <div class="actions">
-        <ul>
-          <li class="items">
-            <a href="#">edit</a>
-          </li>
-          <li class="items">
-            <a href="#">delete</a>
-          </li>
-          <li class="items">
-            <a href="#">view</a>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li class="item">
-      <div class="main">
-        <h1>olivia john</h1>
-        <a href="#">olivia@gmail.com</a>
-      </div>
-      <div class="actions">
-        <ul>
-          <li class="items">
-            <a href="#">edit</a>
-          </li>
-          <li class="items">
-            <a href="#">delete</a>
-          </li>
-          <li class="items">
-            <a href="#">view</a>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li class="item">
-      <div class="main">
-        <h1>olivia john</h1>
-        <a href="#">olivia@gmail.com</a>
-      </div>
-      <div class="actions">
-        <ul>
-          <li class="items">
-            <a href="#">edit</a>
-          </li>
-          <li class="items">
-            <a href="#">delete</a>
-          </li>
-          <li class="items">
-            <a href="#">view</a>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li class="item">
-      <div class="main">
-        <h1>olivia john</h1>
-        <a href="#">olivia@gmail.com</a>
-      </div>
-      <div class="actions">
-        <ul>
-          <li class="items">
-            <a href="#">edit</a>
-          </li>
-          <li class="items">
-            <a href="#">delete</a>
-          </li>
-          <li class="items">
-            <a href="#">view</a>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li class="item">
-      <div class="main">
-        <h1>olivia john</h1>
-        <a href="#">olivia@gmail.com</a>
-      </div>
-      <div class="actions">
-        <ul>
-          <li class="items">
-            <a href="#">edit</a>
-          </li>
-          <li class="items">
-            <a href="#">delete</a>
-          </li>
-          <li class="items">
-            <a href="#">view</a>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li class="item">
-      <div class="main">
-        <h1>olivia john</h1>
-        <a href="#">olivia@gmail.com</a>
-      </div>
-      <div class="actions">
-        <ul>
-          <li class="items">
-            <a href="#">edit</a>
-          </li>
-          <li class="items">
-            <a href="#">delete</a>
-          </li>
-          <li class="items">
-            <a href="#">view</a>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li class="item">
-      <div class="main">
-        <h1>olivia john</h1>
-        <a href="#">olivia@gmail.com</a>
-      </div>
-      <div class="actions">
-        <ul>
-          <li class="items">
-            <a href="#">edit</a>
-          </li>
-          <li class="items">
-            <a href="#">delete</a>
-          </li>
-          <li class="items">
-            <a href="#">view</a>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li class="item">
-      <div class="main">
-        <h1>olivia john</h1>
-        <a href="#">olivia@gmail.com</a>
-      </div>
-      <div class="actions">
-        <ul>
-          <li class="items">
-            <a href="#">edit</a>
-          </li>
-          <li class="items">
-            <a href="#">delete</a>
-          </li>
-          <li class="items">
-            <a href="#">view</a>
-          </li>
-        </ul>
-      </div>
-    </li>
+    {% endfor %}
   </ul>
 </div>
 {% endblock %}
