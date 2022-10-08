@@ -1,0 +1,36 @@
+{% extends "admin_layout.html" %} {% block heading %}
+<h1 class="head">Works</h1>
+{% endblock %} {% block content %}
+
+<div class="manage-user add-works">
+  <h1 class="heading">Add Work</h1>
+  <form method="post" action="/add_work1" class="add-work">
+    <p class="row">
+      <input
+        type="text"
+        name="title"
+        id="workname"
+        placeholder="Work Name "
+        required
+      />
+      <label for="workname">Work Name </label>
+    </p>
+    <p class="row">
+      <textarea
+        name="description"
+        id="description"
+        placeholder="Add Description...."
+        rows="15"
+      ></textarea>
+      <label for="description">Description </label>
+    </p>
+    <!-- {% for message in get_flashed_messages() %}
+      <div class="alert-error">Error : {{ message }}</div>
+      {% endfor %} -->
+    <p class="btn-grp">
+      <input type="reset" value="Clear" />
+      <input type="submit" value="Add Work" />
+    </p>
+  </form>
+</div>
+{% endblock %}

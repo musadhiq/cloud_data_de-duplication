@@ -3,8 +3,9 @@
   color: #fff;
   height: 100vh;
   display: grid;
-  grid-template-columns: 70px auto;
+  grid-template-columns: 80px auto;
   gap: 40px;
+  padding-bottom: 50px;
   aside {
     background-color: $cardbg;
     position: relative;
@@ -27,6 +28,7 @@
       background-color: $bg;
       width: 100%;
       z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.295);
     }
     .top {
       .user {
@@ -99,6 +101,60 @@
                 color: red;
               }
             }
+          }
+        }
+      }
+    }
+    .works {
+      margin-top: 30px;
+      h1.works {
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.918);
+        i {
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+  ul.works-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: space-between;
+    margin-top: 20px;
+    li.work-item {
+      background-color: $cardbg;
+      width: max-content;
+      min-width: 700px;
+      padding: 8px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 10px;
+      gap: 30px;
+      .work-info {
+        h3.work-name {
+          font-size: 1rem;
+          font-weight: 500;
+          color: rgba(255, 255, 255, 0.918);
+        }
+        p.work-desc {
+          max-width: 550px;
+        }
+      }
+      .work-action {
+        cursor: pointer;
+
+        i {
+          font-size: 1rem;
+          padding: 0 10px;
+          &.status {
+            color: $light-grey;
+            cursor: default;
+          }
+          &.done {
+            color: green;
           }
         }
       }

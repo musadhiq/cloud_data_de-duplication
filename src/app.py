@@ -1,10 +1,14 @@
+from tkinter import CURRENT
 from click import echo
 from flask import *
 from src.dbconnection import *
 from src.templates import *
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = "anystringhere"
+
+date = datetime.today()
 
 
 @app.route('/')
@@ -39,7 +43,8 @@ def login():
 
 @app.route('/admin')
 def admin_home():
-    return render_template("/admin/admin_home.html")
+    works = selectall("SELECT * FROM `works`")
+    return render_template("/admin/admin_home.html", works=works)
 
 
 @app.route('/manage_leaders')
@@ -107,6 +112,50 @@ def delete_leader():
     qry = "DELETE FROM `leader` WHERE `id`=%s"
     iud(qry, id)
     return '''<script>alert("deleted");window.location="/manage_leaders"</script>'''
+
+
+@app.route('/add_work')
+def add_work():
+    return render_template("/admin/add_works.html")
+
+
+@app.route('/add_work1', methods=['post'])
+def add_work1():
+    title = request.form['title']
+    description = request.form['description']
+    qry = "insert into works values(Null,%s,%s,%s,Null)"
+
+    val = (title, description, date)
+    iud(qry, val)
+    return '''<script>alert("added");window.location="/admin"</script>'''
+
+
+@app.route('/work/delete')
+def delete_work():
+    id = request.args.get('id')
+    qry = "DELETE FROM `works` WHERE `workid`=%s"
+    iud(qry, id)
+    return '''<script>alert("deleted");window.location="/admin"</script>'''
+
+
+@app.route('/admin/assign_works')
+def assign_works():
+    works = selectall("SELECT * FROM `works`")
+    leaders = selectall("SELECT lid,Fname,Lname FROM `leader`")
+    assigned = selectall("SELECT * FROM `assign_to_leader`")
+    filtered_works = list(filter(lambda x: x['workid'] not in [
+        y['wid'] for y in assigned], works))
+    return render_template("/admin/assign_work.html", works=filtered_works, leaders=leaders)
+
+
+@app.route("/admin/assign_works1", methods=['post'])
+def assign_works1():
+    workid = request.form['workid']
+    leaderid = request.form['leaderid']
+    qry = "insert into assign_to_leader values(Null,%s,%s,%s,'pending')"
+    val = (leaderid, workid, date)
+    iud(qry, val)
+    return '''<script>alert("assigned");window.location="/admin"</script>'''
 
 
 @app.route('/complaint')

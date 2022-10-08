@@ -122,8 +122,9 @@ ol {
   color: #fff;
   height: 100vh;
   display: grid;
-  grid-template-columns: 70px auto;
+  grid-template-columns: 80px auto;
   gap: 40px;
+  padding-bottom: 50px;
 }
 #dashboard aside {
   background-color: #353a50;
@@ -149,6 +150,7 @@ ol {
   background-color: #2b2f42;
   width: 100%;
   z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.295);
 }
 #dashboard .dash .top .user {
   display: flex;
@@ -219,11 +221,63 @@ ol {
 #dashboard .dash .content ul.items li.item a i.red {
   color: red;
 }
+#dashboard .dash .works {
+  margin-top: 30px;
+}
+#dashboard .dash .works h1.works {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.918);
+}
+#dashboard .dash .works h1.works i {
+  padding-right: 10px;
+}
+#dashboard ul.works-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+#dashboard ul.works-list li.work-item {
+  background-color: #353a50;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  min-width: 700px;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  gap: 30px;
+}
+#dashboard ul.works-list li.work-item .work-info h3.work-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.918);
+}
+#dashboard ul.works-list li.work-item .work-info p.work-desc {
+  max-width: 550px;
+}
+#dashboard ul.works-list li.work-item .work-action {
+  cursor: pointer;
+}
+#dashboard ul.works-list li.work-item .work-action i {
+  font-size: 1rem;
+  padding: 0 10px;
+}
+#dashboard ul.works-list li.work-item .work-action i.status {
+  color: #ececec;
+  cursor: default;
+}
+#dashboard ul.works-list li.work-item .work-action i.done {
+  color: green;
+}
 
 .manage-user {
   margin: 50px auto;
   max-width: 600px;
-  height: 200vh;
 }
 .manage-user .heading {
   position: relative;
@@ -280,7 +334,7 @@ ol {
 .manage-user form p.row label {
   position: absolute;
   opacity: 0;
-  transition: 0.4s bottom, 0.5s opacity;
+  transition: 0.4s bottom, 0.8s opacity;
   bottom: 0;
   left: 15px;
   z-index: 1;
@@ -296,7 +350,8 @@ ol {
   position: relative;
   left: 0;
 }
-.manage-user form p.row input {
+.manage-user form p.row input,
+.manage-user form p.row textarea {
   font-size: 0.9rem;
   padding: 12px;
   margin: 2px 0;
@@ -307,23 +362,29 @@ ol {
   background-color: transparent;
   color: #fff;
 }
-.manage-user form p.row input:focus, .manage-user form p.row input.active {
+.manage-user form p.row input:focus, .manage-user form p.row input.active,
+.manage-user form p.row textarea:focus,
+.manage-user form p.row textarea.active {
   border: 1px solid white;
 }
-.manage-user form p.row input:focus::-moz-placeholder {
+.manage-user form p.row input:focus::-moz-placeholder, .manage-user form p.row textarea:focus::-moz-placeholder {
   color: transparent;
 }
-.manage-user form p.row input:focus:-ms-input-placeholder {
+.manage-user form p.row input:focus:-ms-input-placeholder, .manage-user form p.row textarea:focus:-ms-input-placeholder {
   color: transparent;
 }
-.manage-user form p.row input:focus::placeholder {
+.manage-user form p.row input:focus::placeholder,
+.manage-user form p.row textarea:focus::placeholder {
   color: transparent;
 }
-.manage-user form p.row input:focus + label, .manage-user form p.row input.active + label {
+.manage-user form p.row input:focus + label, .manage-user form p.row input.active + label,
+.manage-user form p.row textarea:focus + label,
+.manage-user form p.row textarea.active + label {
   bottom: 70%;
   opacity: 1;
 }
-.manage-user form p.row input:required + label::after {
+.manage-user form p.row input:required + label::after,
+.manage-user form p.row textarea:required + label::after {
   content: "*";
   color: red;
 }
@@ -360,6 +421,76 @@ ol {
 .manage-user form .btn-grp input[type=reset] {
   color: #fff;
   background-color: red;
+}
+
+.add-works form p.row textarea {
+  resize: none;
+}
+.add-works form p.row textarea:focus + label, .add-works form p.row textarea.active + label {
+  bottom: 95%;
+  opacity: 1;
+}
+
+.heading--sub {
+  position: relative;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.699);
+  font-weight: 600;
+  padding: 10px;
+  margin-top: 50px;
+}
+
+.container-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+ul.works-list li.work-item .work-info.info-assign {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+ul.works-list li.work-item .work-info h4.leader-name {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.699);
+  font-weight: 400;
+  padding-top: 2px;
+}
+ul.works-list li.work-item .work-action form.assign-to select#leadersselect {
+  padding: 5px 18px;
+  background-color: transparent;
+  color: #ececec;
+  border-radius: 5px;
+  margin: 0 20px;
+}
+ul.works-list li.work-item .work-action form.assign-to select#leadersselect option {
+  background-color: #353a50;
+}
+ul.works-list li.work-item .work-action form.assign-to select#leadersselect:focus, ul.works-list li.work-item .work-action form.assign-to select#leadersselect:active {
+  outline: none;
+  border: 1px solid #ececec;
+}
+ul.works-list li.work-item .work-action form.assign-to input[type=submit] {
+  padding: 5px 18px;
+  background-color: #ececec;
+  color: #2b2f42;
+  border-radius: 5px;
+  border: none;
+}
+ul.works-list li.work-item .status-head {
+  color: #ececec;
+  font-size: 1rem;
+  font-weight: 500;
+  padding-bottom: 2px;
+}
+ul.works-list li.work-item span.status {
+  color: red;
+}
+ul.works-list li.work-item span.status.completed {
+  color: green;
 }
 
 .content .users {
