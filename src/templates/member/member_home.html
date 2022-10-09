@@ -1,19 +1,17 @@
-{% extends "Layout.html" %} {% block user %}
-<div class="top member">
-  <div class="user">
-    <img src="https://picsum.photos/70" alt="avatar" class="avatar" />
-    <h3 class="name">Olivia doe</h3>
-  </div>
-  <div class="notifiction"><i class="fa-solid fa-bell active"></i></div>
-</div>
-{% endblock %} {% block heading %}
+{% extends "member_layout.html" %} {% block heading %}
 <h1 class="head">Member Dashboard</h1>
 {% endblock %} {% block content %}
 <ul class="items">
   <li class="item">
-    <a href="#">
+    <a href="/member/manage_profile">
       <p>Manage Profile</p>
       <i class="fa-solid fa-user"></i>
+    </a>
+  </li>
+  <li class="item">
+    <a href="#">
+      <p>Manange Works</p>
+      <i class="fa-solid fa-laptop-file"></i>
     </a>
   </li>
   <li class="item">
@@ -22,18 +20,13 @@
       <i class="fa-solid fa-question"></i>
     </a>
   </li>
-  <li class="item">
+  <!-- <li class="item">
     <a href="#">
       <p>Write a Feedbacks</p>
       <i class="fa-solid fa-comments"></i>
     </a>
-  </li>
-  <li class="item">
-    <a href="#">
-      <p>Complaints</p>
-      <i class="fa-solid fa-circle-exclamation red"></i>
-    </a>
-  </li>
+  </li> -->
+
   <li class="item">
     <a href="#">
       <p>Upload Files</p>
@@ -44,6 +37,12 @@
     <a href="#">
       <p>View Files</p>
       <i class="fa-solid fa-folder"></i>
+    </a>
+  </li>
+  <li class="item">
+    <a href="#">
+      <p>Get Admin Help !</p>
+      <i class="fa-regular fa-circle-xmark"></i>
     </a>
   </li>
 </ul>

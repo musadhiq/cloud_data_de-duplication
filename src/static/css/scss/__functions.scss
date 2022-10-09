@@ -1,7 +1,7 @@
 // add leader
 .manage-user {
   margin: 50px auto;
-  max-width: 600px;
+  width: 60%;
   .heading {
     position: relative;
     font-size: 1.3rem;
@@ -10,7 +10,6 @@
     padding: 10px;
     &::after {
       content: "  ";
-
       position: absolute;
       left: 120px;
       width: 60%;
@@ -229,6 +228,47 @@ ul.works-list {
       color: red;
       &.completed {
         color: green;
+      }
+    }
+  }
+}
+
+// feedbacks leader section
+
+.content {
+  display: flex;
+  justify-content: center;
+  .feedbacks {
+    ul.messages {
+      padding-top: 20px;
+      li.message {
+        width: 600px;
+        background-color: $cardbg;
+        padding: 10px;
+        border-radius: 5px;
+        .user {
+          h3.name {
+            font-size: 1rem;
+            color: $light-grey;
+            font-weight: 500;
+            padding-bottom: 2px;
+          }
+        }
+        .message-content {
+          p.message-text {
+            color: $light-grey;
+            font-size: 0.9rem;
+            font-weight: 400;
+            padding-bottom: 2px;
+          }
+          .message-time {
+            text-align: right;
+            span {
+              font-size: 0.7rem;
+              color: $grey-text;
+            }
+          }
+        }
       }
     }
   }

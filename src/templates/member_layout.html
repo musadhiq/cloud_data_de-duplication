@@ -1,0 +1,27 @@
+{%extends "base.html"%} {% block title %} Member Dashboard {% endblock %} {%
+block page_content %}
+<div id="dashboard">
+  <aside>
+    <ul>
+      <li>
+        <a href="/member"><i class="fa-solid fa-house"></i></a>
+      </li>
+      <li>
+        <a href="/"><i class="fa-solid fa-power-off"></i></a>
+      </li>
+    </ul>
+  </aside>
+  <div class="dash">
+    <div class="dash-fixed">
+      <div class="top">
+        <div class="user">
+          <img src="https://picsum.photos/70" alt="avatar" class="avatar" />
+          <h3 class="name">Olivia doe</h3>
+        </div>
+      </div>
+      {% block heading %} {% endblock %}
+    </div>
+    <div class="content">{% block content %} {% endblock %}</div>
+  </div>
+</div>
+{% endblock %}

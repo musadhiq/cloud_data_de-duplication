@@ -35,6 +35,8 @@ def login():
         session['lid'] = id
         return '''<script>alert("welcome to leader");window.location="/leader"</script>'''
     elif res['type'] == 'member':
+        id = res['id']
+        session['lid'] = id
         return '''<script>alert("welcome to member");window.location="/member"</script>'''
     else:
         flash("incorrect username or password.")
@@ -276,9 +278,11 @@ def assign_to_mem():
     return '''<script>alert("assigned");window.location="/leader"</script>'''
 
 
-@app.route('/feedback')
+@app.route('/leader/view_feedbacks')
 def feedback():
-    return render_template("/feedback.html")
+    feedbacks = selectall("select * from feedback")
+    print(feedbacks)
+    return render_template("/leader/view_feedbacks.html")
 
 
 @app.route('/doubt')
@@ -302,6 +306,16 @@ def send_notification():
 @app.route('/member')
 def member():
     return render_template("/member/member_home.html")
+
+
+@app.route('/member/manage_profile')
+def member_profile():
+    id = session['lid']
+    qry = "SELECT * FROM `member` WHERE `lid`=%s"
+    val = (id)
+    res = selectone(qry, val)
+    print(res)
+    return render_template("/member/edit_profile.html", data=res)
 
 
 @app.route('/member_work')

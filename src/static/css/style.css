@@ -277,7 +277,7 @@ ol {
 
 .manage-user {
   margin: 50px auto;
-  max-width: 600px;
+  width: 60%;
 }
 .manage-user .heading {
   position: relative;
@@ -495,6 +495,43 @@ ul.works-list li.work-item span.status.completed {
   color: green;
 }
 
+.content {
+  display: flex;
+  justify-content: center;
+}
+.content .feedbacks ul.messages {
+  padding-top: 20px;
+}
+.content .feedbacks ul.messages li.message {
+  width: 600px;
+  background-color: #353a50;
+  padding: 10px;
+  border-radius: 5px;
+}
+.content .feedbacks ul.messages li.message .user h3.name {
+  font-size: 1rem;
+  color: #ececec;
+  font-weight: 500;
+  padding-bottom: 2px;
+}
+.content .feedbacks ul.messages li.message .message-content p.message-text {
+  color: #ececec;
+  font-size: 0.9rem;
+  font-weight: 400;
+  padding-bottom: 2px;
+}
+.content .feedbacks ul.messages li.message .message-content .message-time {
+  text-align: right;
+}
+.content .feedbacks ul.messages li.message .message-content .message-time span {
+  font-size: 0.7rem;
+  color: #8f8e8e;
+}
+
+.content {
+  margin: 0 auto;
+  margin-bottom: 100px;
+}
 .content .users {
   width: 80%;
   margin: 0 auto;
