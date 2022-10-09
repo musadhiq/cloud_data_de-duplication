@@ -1,12 +1,10 @@
-{% extends "Layout.html" %} {% block user %}
-<img src="https://picsum.photos/70" alt="avatar" class="avatar" />
-<h3 class="name">john doe</h3>
-{% endblock %} {% block heading %}
-<h1 class="head">Admin Dashboard</h1>
+{% extends "leader_layout.html" %} {% block heading %}
+<h1 class="head">Manage Members</h1>
 {% endblock %} {% block content %}
 <div class="manage-user">
   <h1 class="heading">Edit Member</h1>
-  <form action="editMember" method="post" class="edit-Member">
+  <form action="/leader/edit_member1" method="post" class="edit-Member">
+    <input type="text" name="lid" value="{{data.lid}}" hidden />
     <div class="col">
       <p class="row">
         <input
@@ -14,6 +12,7 @@
           name="firstname"
           id="firstname"
           placeholder="First Name"
+          value="{{data.fname}}"
           required
         />
         <label for="firstname">First Name </label>
@@ -23,6 +22,7 @@
           type="text"
           name="lastname"
           id="lastname"
+          value="{{data.lname}}"
           placeholder="Last Name"
         />
         <label for="lastname">Last Name </label>
@@ -47,27 +47,56 @@
       </div>
     </fieldset>
     <p class="row">
-      <input type="text" name="place" placeholder="Place" required />
+      <input
+        type="text"
+        name="place"
+        placeholder="Place"
+        value="{{data.place}}"
+        required
+      />
       <label for="place">Place </label>
     </p>
     <div class="col">
       <p class="row">
-        <input type="text" name="post" placeholder="Post" required />
+        <input
+          type="text"
+          name="post"
+          placeholder="Post"
+          value="{{data.post}}"
+          required
+        />
         <label for="post">Post </label>
       </p>
 
       <p class="row">
-        <input type="number" name="pin" placeholder="Pin Code" required />
+        <input
+          type="number"
+          name="pin"
+          placeholder="Pin Code"
+          value="{{data.pin}}"
+          required
+        />
         <label for="pin">Pin Code</label>
       </p>
     </div>
     <div class="col">
       <p class="row">
-        <input type="email" name="email" placeholder="Email" />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value="{{data.email}}"
+        />
         <label for="email">Email </label>
       </p>
       <p class="row">
-        <input type="tel" name="phone" placeholder="Phone Number" required />
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Phone Number"
+          value="{{data.phone}}"
+          required
+        />
         <label for="phone">Phone Number</label>
       </p>
     </div>

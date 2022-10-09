@@ -4,10 +4,10 @@ block page_content %}
   <aside>
     <ul>
       <li>
-        <a href="#"><i class="fa-solid fa-house"></i></a>
+        <a href="/leader"><i class="fa-solid fa-house"></i></a>
       </li>
       <li>
-        <a href="#"><i class="fa-solid fa-power-off"></i></a>
+        <a href="/"><i class="fa-solid fa-power-off"></i></a>
       </li>
     </ul>
   </aside>
@@ -19,7 +19,7 @@ block page_content %}
           <h3 class="name">Olivia doe</h3>
         </div>
       </div>
-      <h1 class="head">Leader Dashboard</h1>
+      {% block heading %} {% endblock %}
     </div>
     <div class="content">{% block content %} {% endblock %}</div>
   </div>

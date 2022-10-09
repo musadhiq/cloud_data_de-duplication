@@ -1,12 +1,9 @@
-{% extends "Layout.html" %} {% block user %}
-<img src="https://picsum.photos/70" alt="avatar" class="avatar" />
-<h3 class="name">john doe</h3>
-{% endblock %} {% block heading %}
-<h1 class="head">Admin Dashboard</h1>
+{% extends "leader_layout.html" %} {% block heading %}
+<h1 class="head">Manage Members</h1>
 {% endblock %} {% block content %}
 <div class="manage-user">
   <h1 class="heading">Add Member</h1>
-  <form action="addMember" method="post" class="add-Member">
+  <form action="/leader/add_member1" method="post" class="add-Member">
     <div class="col">
       <p class="row">
         <input

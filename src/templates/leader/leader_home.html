@@ -1,19 +1,27 @@
-{% extends "leader_layout.html" %} {% block content %}
+{% extends "leader_layout.html" %} {% block heading %}
+<h1 class="head">Leader Dashboard</h1>
+{% endblock %} {% block content %}
 <ul class="items">
   <li class="item">
-    <a href="#">
+    <a href="/leader/edit_profile">
+      <p>Manage Profile</p>
+      <i class="fa-solid fa-user"></i>
+    </a>
+  </li>
+  <li class="item">
+    <a href="/leader/manage_members">
       <p>Manage Members</p>
       <i class="fa-solid fa-users-viewfinder"></i>
     </a>
   </li>
   <li class="item">
-    <a href="#">
-      <p>Add Works</p>
-      <i class="fa-solid fa-file-circle-plus"></i>
+    <a href="/leader/manage_works">
+      <p>Manange Works</p>
+      <i class="fa-solid fa-laptop-file"></i>
     </a>
   </li>
   <li class="item">
-    <a href="#">
+    <a href="/leader/assign_works">
       <p>Assign Works</p>
       <i class="fa-solid fa-list-check"></i>
     </a>

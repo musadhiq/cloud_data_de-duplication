@@ -1,10 +1,10 @@
-{% extends "admin_layout.html" %} {% block heading %}
-<h1 class="head">Edit Leader</h1>
+{% extends "leader_layout.html" %} {% block heading %}
+<h1 class="head">Edit Profile</h1>
 {% endblock %} {% block content %}
 <div class="manage-user">
-  <h1 class="heading">Edit Leader</h1>
-  <form action="/leaders/update" method="post" class="edit-leader">
-    <input type="text" name="lid" value="{{data.lid}}" hidden />
+  <h1 class="heading">Edit Profile</h1>
+  <form action="/leader/update" method="post" class="edit-leader">
+    <input type="text" name="lid" value="{{data.id}}" hidden />
     <div class="col">
       <p class="row">
         <input

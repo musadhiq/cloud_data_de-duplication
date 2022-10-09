@@ -1,24 +1,24 @@
-{% extends "admin_layout.html" %} {% block heading %}
-<h1 class="head">Manage Works</h1>
+{% extends "leader_layout.html" %} {% block heading %}
+<h1 class="head">Works</h1>
 {% endblock %} {% block content %}
 <div class="container-flex">
   <div class="assign-to-leader">
     <h1 class="heading--sub">Assign Work</h1>
     <ul class="works-list">
-      {% if works %} {% for work in works %}
+      {% for work in works %}
       <li class="work-item">
         <div class="work-info info-assign">
           <i class="fa-solid fa-screwdriver-wrench"></i>
           <h3 class="work-name">{{work.workname}}</h3>
         </div>
         <div class="work-action">
-          <form action="/admin/assign_works1" method="post" class="assign-to">
+          <form action="/leader/assign_works1" method="post" class="assign-to">
             <input type="hidden" name="workid" value="{{work.workid}}" />
-            <select name="leaderid" id="leadersselect">
-              <option value="leader1">Select Leader Name</option>
-              {% for leader in leaders %}
-              <option value="{{leader.lid}}">
-                {{leader.Fname}} {{leader.Lname}}
+            <select name="memberid" id="leadersselect">
+              <option value="Member1">Select Member Name</option>
+              {% for member in members %}
+              <option value="{{member.lid}}">
+                {{member.fname}} {{member.lname}}
               </option>
               {% endfor %}
             </select>
@@ -26,14 +26,7 @@
           </form>
         </div>
       </li>
-      {% endfor %} {% else %}
-      <li class="work-item">
-        <div class="work-info info-assign">
-          <i class="fa-solid fa-screwdriver-wrench"></i>
-          <h3 class="work-name">No Works Available</h3>
-        </div>
-      </li>
-      {% endif %}
+      {% endfor %}
     </ul>
   </div>
   <div class="assign-to-leader">
