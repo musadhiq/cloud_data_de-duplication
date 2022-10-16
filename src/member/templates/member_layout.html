@@ -19,9 +19,41 @@ block page_content %}
           <h3 class="name">Olivia doe</h3>
         </div>
       </div>
-      {% block heading %} {% endblock %}
+      <div class="member">
+        {% block heading %} {% endblock %}
+        <div class="notification">
+          <i class="fa-regular fa-bell notification-btn"></i>
+          <ul class="items">
+            <div class="top">
+              <legend>Notifications</legend>
+              <i class="fa-solid fa-xmark notification-btn"></i>
+            </div>
+            <li class="item">
+              Lorem, ipsum dolor sit amet consectetur adipisicing.
+            </li>
+            <li class="item">
+              Lorem, ipsum dolor sit amet consectetur adipisicing.
+            </li>
+            <li class="item">
+              Lorem, ipsum dolor sit amet consectetur adipisicing.
+            </li>
+            <li class="item">
+              Lorem, ipsum dolor sit amet consectetur adipisicing.
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div class="content">{% block content %} {% endblock %}</div>
   </div>
 </div>
+<script>
+  const notification = document.querySelector(".notification");
+  const notificationBtn = document.querySelectorAll(".notification-btn");
+  notificationBtn.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      notification.classList.toggle("active");
+    });
+  });
+</script>
 {% endblock %}

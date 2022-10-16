@@ -52,12 +52,56 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 50px 0 0;
-      .notifiction {
+      .notification {
+        position: relative;
+        ul.items {
+          position: absolute;
+          top: -5px;
+          right: -5px;
+          display: flex;
+          flex-direction: column;
+          background-color: $cardbg;
+          padding: 8px 16px;
+          width: 300px;
+          display: none;
+          .top {
+            legend {
+              font-size: 1rem;
+              font-weight: 500;
+              margin-bottom: 10px;
+            }
+            i {
+              position: absolute;
+              right: 15px;
+              top: 5px;
+              cursor: pointer;
+            }
+          }
+          li.item {
+            padding: 4px 2px;
+            border-bottom: 1px solid $light-grey;
+
+            color: #fff;
+            font-size: 0.8rem;
+            &:hover {
+              color: $light-grey;
+            }
+          }
+        }
         i {
           font-size: 1.2rem;
           color: rgba(255, 255, 255, 0.801);
-          &.active {
-            color: #fff;
+          background-color: $cardbg;
+          padding: 5px;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+        &.active {
+          i.fa-bell {
+            display: none;
+          }
+          ul.items {
+            display: flex;
           }
         }
       }

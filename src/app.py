@@ -1,4 +1,5 @@
 from flask import *
+
 from src.dbconnection import *
 from src.templates import *
 from datetime import datetime
@@ -9,6 +10,8 @@ from src.leader.leader import leader
 from src.member.member import member
 
 app = Flask(__name__)
+
+
 app.register_blueprint(admin, url_prefix='/admin')
 app.register_blueprint(leader, url_prefix='/leader')
 app.register_blueprint(member, url_prefix='/member')
@@ -48,6 +51,3 @@ def login():
     else:
         flash("incorrect username or password.")
         return '''<script>window.location="/";</script>'''
-
-
-app.run(debug=True)
