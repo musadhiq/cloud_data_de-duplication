@@ -51,4 +51,30 @@
     </a>
   </li>
 </ul>
+<div class="send_notification">
+  <h1 class="heading--sub">Send Notification</h1>
+  <div class="send-not-form">
+    <input
+      type="text"
+      placeholder="Write Notification here"
+      class="sendnotification"
+    >
+    </input>
+    <button type="submit" class="send">Send Notification</button>
+  </div>
+</div>
+
+<script>
+  const input = document.querySelector(".sendnotification");
+  const button = document.querySelector(".send");
+  const socket = io.connect("http://localhost:5000");
+  socket.on("connect", () => {
+    console.log("connected");
+  });
+  button.addEventListener("click", () => {
+    if (input.value !== "") 
+      socket.emit("message", input.value);
+      input.value = "";
+  });
+</script>
 {% endblock %}

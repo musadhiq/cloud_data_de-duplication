@@ -316,6 +316,40 @@ ol {
   color: green;
 }
 
+.send_notification .send-not-form {
+  margin: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  gap: 4px;
+}
+.send_notification .send-not-form input {
+  background-color: #353a50;
+  height: 40px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  resize: none;
+  font-size: 0.95rem;
+  color: #fff;
+}
+.send_notification .send-not-form input:focus {
+  outline: none;
+}
+.send_notification .send-not-form button {
+  background-color: #353a50;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.send_notification .send-not-form button:hover {
+  background-color: #ececec;
+  color: #2b2f42;
+}
+
 .manage-user {
   margin: 50px auto;
   width: 60%;

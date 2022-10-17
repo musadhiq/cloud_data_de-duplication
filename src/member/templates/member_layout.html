@@ -23,23 +23,14 @@ block page_content %}
         {% block heading %} {% endblock %}
         <div class="notification">
           <i class="fa-regular fa-bell notification-btn"></i>
-          <ul class="items">
+          <ul class="items not-items">
             <div class="top">
               <legend>Notifications</legend>
               <i class="fa-solid fa-xmark notification-btn"></i>
             </div>
-            <li class="item">
-              Lorem, ipsum dolor sit amet consectetur adipisicing.
-            </li>
-            <li class="item">
-              Lorem, ipsum dolor sit amet consectetur adipisicing.
-            </li>
-            <li class="item">
-              Lorem, ipsum dolor sit amet consectetur adipisicing.
-            </li>
-            <li class="item">
-              Lorem, ipsum dolor sit amet consectetur adipisicing.
-            </li>
+            {% for notification in notificationdata %}
+            <li class="item">{{notification.notification}}</li>
+            {% endfor %}
           </ul>
         </div>
       </div>
@@ -47,13 +38,25 @@ block page_content %}
     <div class="content">{% block content %} {% endblock %}</div>
   </div>
 </div>
+
 <script>
   const notification = document.querySelector(".notification");
   const notificationBtn = document.querySelectorAll(".notification-btn");
+  const container = document.querySelector(".not-items");
   notificationBtn.forEach((btn) => {
     btn.addEventListener("click", () => {
       notification.classList.toggle("active");
     });
+  });
+  const socket = io.connect("http://localhost:5000");
+  socket.on("connect", () => {
+    console.log("connected");
+  });
+  socket.on("message", (message) => {
+    const li = document.createElement("li");
+    li.classList.add("item");
+    li.innerText = message;
+    container.insertBefore(li, container.children[1]);
   });
 </script>
 {% endblock %}

@@ -205,3 +205,38 @@
     }
   }
 }
+.send_notification {
+  .send-not-form {
+    margin: 10px 5px;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    gap: 4px;
+    input {
+      background-color: $cardbg;
+      height: 40px;
+      border-radius: 5px;
+      padding: 5px 10px;
+      margin-bottom: 10px;
+      resize: none;
+      font-size: 0.95rem;
+      color: #fff;
+      &:focus {
+        outline: none;
+      }
+    }
+    button {
+      background-color: $cardbg;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 0.9rem;
+      &:hover {
+        background-color: $light-grey;
+        color: $bg;
+      }
+    }
+  }
+}
