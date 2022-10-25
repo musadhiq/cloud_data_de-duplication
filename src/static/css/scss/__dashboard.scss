@@ -3,20 +3,118 @@
   color: #fff;
   height: 100vh;
   display: grid;
-  grid-template-columns: 80px auto;
+  grid-template-columns: 50px auto;
   gap: 40px;
   padding-bottom: 50px;
+  &:has(> aside .active) {
+    grid-template-columns: 200px auto;
+  }
   aside {
-    background-color: $cardbg;
     position: relative;
-    ul {
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-      padding: 30px;
-      justify-content: space-between;
+    .side-menu {
+      background-color: $cardbg;
       position: fixed;
-      left: 0;
+      height: 100vh;
+      clear: both;
+      padding: 20px 0;
+      .menu-icon {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        i.close {
+          display: none;
+          color: $bg;
+        }
+      }
+
+      .user-infos-menu {
+        display: none;
+        a {
+          text-align: center;
+          .user-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 10px auto;
+            img {
+              width: 100%;
+              height: 100%;
+              border-radius: 50%;
+            }
+          }
+          .user-name {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 10px;
+          }
+        }
+        .user-actions {
+          display: flex;
+          justify-content: space-around;
+          margin: 20px 0;
+          a {
+            color: #fff;
+            font-size: 1.2rem;
+            i {
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+      ul {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 30px 20px;
+        .top-list-menu {
+          margin-top: 50px;
+          display: flex;
+          flex-direction: column;
+          gap: 25px;
+          li a span {
+            padding: 0 10px;
+            display: none;
+          }
+        }
+        li {
+          &.logout {
+            background-color: $red;
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+          }
+        }
+      }
+      &.active {
+        .menu-icon {
+          i.open {
+            display: none;
+          }
+          i.close {
+            display: block;
+          }
+        }
+        .user-infos-menu {
+          display: block;
+        }
+        ul {
+          li a span {
+            display: inline-block;
+          }
+          li {
+            &.logout {
+              padding: 10px 50px;
+            }
+          }
+        }
+      }
     }
   }
   .dash {
@@ -205,6 +303,7 @@
     }
   }
 }
+
 .send_notification {
   .send-not-form {
     margin: 10px 5px;

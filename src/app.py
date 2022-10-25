@@ -6,9 +6,9 @@ from src.templates import *
 from datetime import datetime
 
 # bluprints
-from src.admin.admin import admin
-from src.leader.leader import leader
-from src.member.member import member
+from admin.admin import admin
+from leader.leader import leader
+from member.member import member
 
 app = Flask(__name__)
 

@@ -36,3 +36,14 @@ Input.forEach((input) => {
 });
 
 // notification
+
+// sidebar
+
+const menuIcon = document.querySelector(".menu-toggle");
+const sideBar = document.querySelector(".side-menu");
+
+sideBar &&
+  menuIcon.addEventListener("click", () => {
+    console.log("hehe");
+    sideBar.classList.toggle("active");
+  });

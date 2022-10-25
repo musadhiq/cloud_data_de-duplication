@@ -2,14 +2,61 @@
 block page_content %}
 <div id="dashboard">
   <aside>
-    <ul>
-      <li>
-        <a href="/member"><i class="fa-solid fa-house"></i></a>
-      </li>
-      <li>
-        <a href="/"><i class="fa-solid fa-power-off"></i></a>
-      </li>
-    </ul>
+    <div class="side-menu">
+      <div class="menu-icon menu-toggle">
+        <i class="fa-solid fa-bars open"></i
+        ><i class="fa-solid fa-xmark close"></i>
+      </div>
+      <div class="user-infos-menu">
+        <a href="#">
+          <div class="user-img">
+            <img src="https://picsum.photos/70" alt="user" />
+          </div>
+          <div class="user-name">
+            <span>John Doe</span>
+          </div>
+        </a>
+        <div class="user-actions">
+          <a href="#"><i class="fa-solid fa-cog"></i></a>
+          <a href="#"><i class="fa-solid fa-sign-out"></i></a>
+        </div>
+      </div>
+      <ul>
+        <div class="top-list-menu">
+          <li>
+            <a href="#"><i class="fa-solid fa-house"></i> <span>Home</span> </a>
+          </li>
+          <li>
+            <a href="#"
+              ><i class="fa-solid fa-users-viewfinder"></i>
+              <span>Manage Leaders</span></a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><i class="fa-solid fa-file-circle-plus"></i>
+              <span>Add Works</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><i class="fa-solid fa-list-check"></i>
+              <span>Assign Works</span></a
+            >
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-circle-exclamation red"></i>
+              <span>Assign Works</span></a
+            >
+          </li>
+        </div>
+
+        <li class="logout">
+          <a href="#"><i class="fa-solid fa-power-off"></i> </a>
+        </li>
+      </ul>
+    </div>
   </aside>
   <div class="dash">
     <div class="dash-fixed">

@@ -25,15 +25,13 @@ ol {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #fff;
+  background: rgb(236, 122, 29);
+  background: linear-gradient(78deg, rgb(236, 122, 29) 0%, rgb(239, 112, 70) 36%, rgb(249, 108, 177) 100%);
 }
 .home .left {
   height: 100vh;
   width: 50%;
   color: white;
-  background-color: #2b2f42;
-  -webkit-clip-path: circle(95% at 0 50%);
-          clip-path: circle(95% at 0 50%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,7 +46,6 @@ ol {
   width: 48%;
   padding: 10%;
   text-align: center;
-  background-color: #fff;
 }
 .home .right .form-head {
   font-size: 2rem;
@@ -56,7 +53,6 @@ ol {
   margin-bottom: 0.3rem;
 }
 .home .right p.txt {
-  color: #8f8e8e;
   font-size: 1.1rem;
   margin-bottom: 1rem;
 }
@@ -79,7 +75,6 @@ ol {
   font-size: 0.8rem;
   letter-spacing: 2.5px;
   margin: 10px 0;
-  color: #2b2f42;
 }
 .home .right form p input[type=text],
 .home .right form p input[type=password] {
@@ -113,8 +108,28 @@ ol {
   border-radius: 7px;
   outline: none;
   border: none;
-  color: white;
-  background-color: #2b2f42;
+  color: #2b2f42;
+  background-color: white;
+}
+
+.custom-shape-divider-top-1666710243 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1666710243 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+
+.custom-shape-divider-top-1666710243 .shape-fill {
+  fill: #fff;
 }
 
 #dashboard {
@@ -122,22 +137,109 @@ ol {
   color: #fff;
   height: 100vh;
   display: grid;
-  grid-template-columns: 80px auto;
+  grid-template-columns: 50px auto;
   gap: 40px;
   padding-bottom: 50px;
 }
+#dashboard:has(> aside .active) {
+  grid-template-columns: 200px auto;
+}
 #dashboard aside {
-  background-color: #353a50;
   position: relative;
 }
-#dashboard aside ul {
+#dashboard aside .side-menu {
+  background-color: #353a50;
+  position: fixed;
+  height: 100vh;
+  clear: both;
+  padding: 20px 0;
+}
+#dashboard aside .side-menu .menu-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+#dashboard aside .side-menu .menu-icon i.close {
+  display: none;
+  color: #2b2f42;
+}
+#dashboard aside .side-menu .user-infos-menu {
+  display: none;
+}
+#dashboard aside .side-menu .user-infos-menu a {
+  text-align: center;
+}
+#dashboard aside .side-menu .user-infos-menu a .user-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 10px auto;
+}
+#dashboard aside .side-menu .user-infos-menu a .user-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+#dashboard aside .side-menu .user-infos-menu a .user-name {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 10px;
+}
+#dashboard aside .side-menu .user-infos-menu .user-actions {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+#dashboard aside .side-menu .user-infos-menu .user-actions a {
+  color: #fff;
+  font-size: 1.2rem;
+}
+#dashboard aside .side-menu .user-infos-menu .user-actions a i {
+  margin-right: 5px;
+}
+#dashboard aside .side-menu ul {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  padding: 30px;
   justify-content: space-between;
-  position: fixed;
-  left: 0;
+  padding: 30px 20px;
+}
+#dashboard aside .side-menu ul .top-list-menu {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+#dashboard aside .side-menu ul .top-list-menu li a span {
+  padding: 0 10px;
+  display: none;
+}
+#dashboard aside .side-menu ul li.logout {
+  background-color: red;
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+}
+#dashboard aside .side-menu.active .menu-icon i.open {
+  display: none;
+}
+#dashboard aside .side-menu.active .menu-icon i.close {
+  display: block;
+}
+#dashboard aside .side-menu.active .user-infos-menu {
+  display: block;
+}
+#dashboard aside .side-menu.active ul li a span {
+  display: inline-block;
+}
+#dashboard aside .side-menu.active ul li.logout {
+  padding: 10px 50px;
 }
 #dashboard .dash {
   position: relative;
