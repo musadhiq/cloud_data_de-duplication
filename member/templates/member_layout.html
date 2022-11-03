@@ -99,7 +99,7 @@ block page_content %}
   socket.on("connect", () => {
     console.log("connected");
   });
-  socket.on("message", (message) => {
+  socket.on("notification", (message) => {
     const li = document.createElement("li");
     li.classList.add("item");
     li.innerText = message;

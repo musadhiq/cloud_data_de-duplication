@@ -63,3 +63,8 @@ def ask_doubt():
 @member.route("/post_complaint")
 def post_complaint():
     return render_template("post_complaint.html")
+
+
+@member.route("/discord")
+def m_chatroom():
+    return render_template("m_chatroom.html")

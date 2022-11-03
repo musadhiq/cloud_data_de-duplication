@@ -1,6 +1,8 @@
+from argparse import Namespace
 from functools import wraps
+from socket import socket
 from flask import *
-from flask_socketio import SocketIO, send
+from flask_socketio import *
 from src.dbconnection import *
 from src.templates import *
 from datetime import datetime
@@ -21,46 +23,7 @@ app.secret_key = "anystringhere"
 
 socketio = SocketIO(app)
 
-
-# login required decorator
-def login_required(f):
-    @wraps(f)
-    def decorated_function(*args, **kwargs):
-        if "lid" not in session:
-            return redirect("/")
-        return f(*args, **kwargs)
-
-    return decorated_function
-
-
-@socketio.on("message")
-def handle_notification(msg):
-    print("received Notification: " + msg)
-    send(msg, broadcast=True)
-    qry = "insert into notification values (null, %s, %s)"
-    val = (msg, datetime.now())
-    iud(qry, val)
-
-
-@app.route("/chat")
-@login_required
-def chat():
-    return render_template("sock.html")
-
-
-def messageReceived(methods=["GET", "POST"]):
-    print("message was received!!!")
-
-
-@socketio.on("complaint")
-def handle_complaint(data):
-    print("received complaint: " + data)
-    socketio.emit("complaint", data, callback=messageReceived)
-
-
-@app.route("/test")
-def sockettest():
-    return render_template("socket.html")
+# login
 
 
 date = datetime.today()
@@ -72,7 +35,7 @@ def index():
 
 
 def set_session(id, username, email):
-    session["user"] = session["user"] = {
+    session["user"] = {
         "id": id,
         "username": username,
         "email": email,
@@ -91,14 +54,14 @@ def login():
         return """<script>window.location="/";</script>"""
     elif res["type"] == "admin":
         id = res["id"]
-        userdata = selectall("select * from admin where id=%s", (id))
+        userdata = selectall2("select * from login where id=%s", (id))
         print(userdata)
         session["user"] = id
         return """<script>alert("welcome to admin");window.location="/admin"</script>"""
     elif res["type"] == "leader":
         id = res["id"]
         userdata = selectall2("select * from leader where lid=%s", (id))
-        set_session(userdata["lid"], res["uname"], userdata["email"])
+        set_session(userdata[0]["lid"], res["uname"], userdata[0]["email"])
         return (
             """<script>alert("welcome to leader");window.location="/leader"</script>"""
         )
@@ -111,6 +74,44 @@ def login():
     else:
         flash("incorrect username or password.")
         return """<script>window.location="/";</script>"""
+
+
+# login required decorator
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if "lid" not in session:
+            return redirect("/")
+        return f(*args, **kwargs)
+
+    return decorated_function
+
+
+@socketio.on("notification")
+def handle_notification(data):
+    print("received Notification: " + data)
+    emit("notification", data, broadcast=True)
+    qry = "insert into notification values (null, %s, %s)"
+    val = (data, datetime.now())
+    iud(qry, val)
+
+
+# chatroom
+@socketio.on("join_room")
+def handle_join_room(data):
+    print("{} has joined the room {}".format(data["name"], data["room"]))
+    join_room(1001)
+    socketio.emit("join_alert", data)
+
+
+@socketio.on("send_message")
+def handle_send_message(data):
+    print(
+        "{} has send message the room {} : {}".format(
+            data["name"], data["room"], data["message"]
+        )
+    )
+    emit("receive_message", data, room=1001)
 
 
 if __name__ == "__main__":

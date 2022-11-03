@@ -1,7 +1,6 @@
 #dashboard {
   background-color: $bg;
   color: #fff;
-  height: 100vh;
   display: grid;
   grid-template-columns: 50px auto;
   gap: 40px;
@@ -207,8 +206,11 @@
     .head {
       margin-top: 15px;
       font-size: 1.5rem;
-      font-weight: 400;
-      color: rgba(255, 255, 255, 0.918);
+      font-weight: 800;
+      background-color: rgb(131, 58, 180);
+      background: linear-gradient(180deg, #f03c75 0%, #2a359e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     .content {
       margin-top: 30px;

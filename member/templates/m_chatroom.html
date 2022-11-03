@@ -1,0 +1,193 @@
+{%extends "base.html"%} {% block title %} Member Dashboard {% endblock %} {%
+block page_content %}
+<div id="dashboard">
+  <aside>
+    <div class="side-menu">
+      <div class="menu-icon menu-toggle">
+        <i class="fa-solid fa-bars open"></i
+        ><i class="fa-solid fa-xmark close"></i>
+      </div>
+      <div class="user-infos-menu">
+        <a href="#">
+          <div class="user-img">
+            <img src="https://picsum.photos/70" alt="user" />
+          </div>
+          <div class="user-name">
+            <span>John Doe</span>
+          </div>
+        </a>
+        <div class="user-actions">
+          <a href="#"><i class="fa-solid fa-cog"></i></a>
+          <a href="#"><i class="fa-solid fa-sign-out"></i></a>
+        </div>
+      </div>
+      <ul>
+        <div class="top-list-menu">
+          <li>
+            <a href="#"><i class="fa-solid fa-house"></i> <span>Home</span> </a>
+          </li>
+          <li>
+            <a href="#"
+              ><i class="fa-solid fa-users-viewfinder"></i>
+              <span>Manage Leaders</span></a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><i class="fa-solid fa-file-circle-plus"></i>
+              <span>Add Works</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              ><i class="fa-solid fa-list-check"></i>
+              <span>Assign Works</span></a
+            >
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-circle-exclamation red"></i>
+              <span>Assign Works</span></a
+            >
+          </li>
+        </div>
+
+        <li class="logout">
+          <a href="#"><i class="fa-solid fa-power-off"></i> </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+  <div class="dash">
+    <div class="content">
+      <div class="chatroom">
+        <div class="discussions">
+          <div class="chat-topbar">
+            <div class="chat-topbar-left">
+              <div class="chat-topbar-avatar">
+                <img src="https://picsum.photos/70" alt="avatar" />
+              </div>
+              <div class="chat-topbar-info">
+                <div class="chat-topbar-name">John Doe</div>
+                <div class="chat-topbar-status">Active</div>
+              </div>
+            </div>
+            <div class="chat-topbar-right">
+              <div class="chat-topbar-action">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div class="chat-topbar-action">
+                <i class="fa-solid fa-video"></i>
+              </div>
+              <div class="chat-topbar-action">
+                <i class="fa-solid fa-ellipsis"></i>
+              </div>
+            </div>
+          </div>
+          <div class="chat-container">
+            <div class="chat">
+              <div class="chat-bubble you">
+                <div class="chat-bubble-img">
+                  <img src="https://picsum.photos/70" alt="avatar" />
+                </div>
+                <div class="chat-bubble-text">
+                  <h1 class="user">john</h1>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Esse, eius.
+                  </p>
+                </div>
+              </div>
+              <div class="chat-bubble me">
+                <div class="chat-bubble-img">
+                  <img src="https://picsum.photos/70" alt="avatar" />
+                </div>
+                <div class="chat-bubble-text">
+                  <h1 class="user">You</h1>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea
+                    autem, perspiciatis tempore doloribus tenetur culpa voluptas
+                    expedita eos. Sapiente, perspiciatis.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="chatroom-actions">
+            <div class="chatroom-input">
+              <input
+                class="message"
+                type="text"
+                class="chat-text"
+                placeholder="say something"
+              />
+            </div>
+            <div class="chatroom-send">
+              <i class="fa-solid fa-paper-plane"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
+  integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
+  crossorigin="anonymous"
+></script>
+<script type="text/javascript" charset="utf-8">
+  const input = document.querySelector(".message");
+  const btn = document.querySelector(".chatroom-send");
+  const container = document.querySelector(".chat");
+  let room = Math.random().toPrecision(2);
+  var socket = io("http://localhost:5000");
+  socket.on("connect", function () {
+    socket.emit("join_room", {
+      name: "John Doe",
+      room: room,
+    });
+
+    btn.addEventListener("click", function () {
+      socket.emit("send_message", {
+        message: input.value,
+        name: "John Doe",
+        room: room,
+      });
+      input.value = "";
+    });
+  });
+
+  socket.on("join_alert", function (data) {
+    el = document.createElement("div");
+    el.classList.add("user-joined");
+    {
+      room == data.room
+        ? (el.innerHTML = "You Joined the chat")
+        : (el.innerHTML = data.name + " joined the chat");
+    }
+
+    container.appendChild(el);
+  });
+
+  socket.on("receive_message", function (data) {
+    console.log(data);
+    let el = document.createElement("div");
+    el.classList.add("chat-bubble");
+    {
+      room == data.room ? el.classList.add("me") : el.classList.add("you");
+    }
+    el.innerHTML = `<div class="chat-bubble you">
+            <div class="chat-bubble-text">
+              <h1 class="user">john</h1>
+              <p>
+               ${data.message}
+              </p>
+            </div>
+      
+          </div>`;
+    container.appendChild(el);
+    container.scrollTop = container.scrollHeight;
+  });
+</script>
+{% endblock %}

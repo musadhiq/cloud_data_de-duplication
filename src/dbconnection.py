@@ -1,15 +1,16 @@
 import pymysql
 
-hostname = 'remotemysql.com'
-username = 'Jr1FnFEvhE'
+hostname = "localhost"
+username = "root"
 portnum = 3306
-password = 'zC5EALFrzL'
-dbname = 'Jr1FnFEvhE'
+password = "12345678"
+dbname = "Jr1FnFEvhE"
 
 
 def iud(qry, val):
-    con = pymysql.connect(host=hostname, port=portnum,
-                          user=username, password=password, db=dbname)
+    con = pymysql.connect(
+        host=hostname, port=portnum, user=username, password=password, db=dbname
+    )
     cmd = con.cursor()
     cmd.execute(qry, val)
     id = cmd.lastrowid
@@ -20,8 +21,14 @@ def iud(qry, val):
 
 
 def selectone(qry, val):
-    con = pymysql.connect(host=hostname, port=portnum,
-                          user=username, password=password, db=dbname, cursorclass=pymysql.cursors.DictCursor)
+    con = pymysql.connect(
+        host=hostname,
+        port=portnum,
+        user=username,
+        password=password,
+        db=dbname,
+        cursorclass=pymysql.cursors.DictCursor,
+    )
     cmd = con.cursor()
     cmd.execute(qry, val)
     res = cmd.fetchone()
@@ -30,8 +37,14 @@ def selectone(qry, val):
 
 
 def selectall(qry):
-    con = pymysql.connect(host=hostname, port=portnum,
-                          user=username, password=password, db=dbname, cursorclass=pymysql.cursors.DictCursor)
+    con = pymysql.connect(
+        host=hostname,
+        port=portnum,
+        user=username,
+        password=password,
+        db=dbname,
+        cursorclass=pymysql.cursors.DictCursor,
+    )
     cmd = con.cursor()
     cmd.execute(qry)
     res = cmd.fetchall()
@@ -39,8 +52,14 @@ def selectall(qry):
 
 
 def selectall2(qry, val):
-    con = pymysql.connect(host=hostname, port=portnum,
-                          user=username, password=password, db=dbname, cursorclass=pymysql.cursors.DictCursor)
+    con = pymysql.connect(
+        host=hostname,
+        port=portnum,
+        user=username,
+        password=password,
+        db=dbname,
+        cursorclass=pymysql.cursors.DictCursor,
+    )
     cmd = con.cursor()
     cmd.execute(qry, val)
     res = cmd.fetchall()

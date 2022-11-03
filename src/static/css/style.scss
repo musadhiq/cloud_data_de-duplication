@@ -122,14 +122,17 @@ ol {
         letter-spacing: 1px;
         border-radius: 7px;
         outline: none;
-        border: none;
-        color: $black;
-        background-color: white;
+        border: 0.8rem solid white;
+        color: white;
+        &:hover {
+          border: none;
+          background-color: $black;
+        }
       }
     }
   }
 }
-.custom-shape-divider-top-1666710243 {
+.sym-try {
   position: absolute;
   top: 0;
   left: 0;
@@ -138,20 +141,20 @@ ol {
   line-height: 0;
 }
 
-.custom-shape-divider-top-1666710243 svg {
+.sym-trysvg {
   position: relative;
   display: block;
   width: calc(100% + 1.3px);
   height: 150px;
 }
 
-.custom-shape-divider-top-1666710243 .shape-fill {
+.sym-try .shape-fill {
   fill: #fff;
 }
 // admin
 @import "./scss/_dashboard";
 @import "./scss/_functions";
-
+@import "./scss/_chatroom";
 // pages
 
 @import "./scss/_pages";

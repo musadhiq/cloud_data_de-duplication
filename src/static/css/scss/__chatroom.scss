@@ -1,0 +1,175 @@
+.chatroom {
+  .discussions {
+    margin: 0 auto;
+    background-color: $cardbg;
+    width: 650px;
+    border: 0.5px solid rgba(255, 255, 255, 0.288);
+    .chat-topbar {
+      background-color: $bg;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .chat-topbar-left {
+        display: flex;
+        align-items: center;
+        .chat-topbar-avatar {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          margin-right: 1rem;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+          }
+        }
+        .chat-topbar-info {
+          .chat-topbar-name {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #fff;
+          }
+          .chat-topbar-status {
+            font-size: 0.9rem;
+            color: #fff;
+            &::before {
+              content: "";
+              display: inline-block;
+              width: 10px;
+              height: 10px;
+              background-color: #2ecc71;
+              border-radius: 50%;
+              margin-right: 0.5rem;
+            }
+          }
+        }
+      }
+      .chat-topbar-right {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        .chat-topbar-action {
+          margin-right: 1rem;
+          cursor: pointer;
+          &.active {
+            color: #2ecc71;
+          }
+        }
+      }
+    }
+    .chat-container {
+      .chat {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        flex-direction: column;
+        padding: 0.5rem 0;
+        height: 74vh;
+        overflow: scroll;
+        &::-webkit-scrollbar {
+          width: 0;
+        }
+        .user-joined {
+          margin: 0 auto;
+          padding: 2px 8px;
+          background: #ffffff47;
+          border-radius: 10px;
+          font-size: 13px;
+        }
+        .chat-bubble {
+          padding: 0.1rem 0.5rem;
+          border-radius: 10px;
+          display: flex;
+          gap: 0.3rem;
+
+          &.me {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+            h1.user {
+              text-align: right;
+            }
+          }
+
+          .chat-bubble-img {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            margin-right: 1rem;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-radius: 50%;
+            }
+          }
+          .chat-bubble-text {
+            font-size: 1rem;
+            font-weight: 500;
+            color: $bg;
+            background-color: #fff;
+
+            border-radius: 10px;
+            position: relative;
+            max-width: 450px;
+            h1.user {
+              font-size: 0.9rem;
+              font-weight: 700;
+              padding: 0 0.5rem;
+              color: darkblue;
+            }
+            p {
+              padding: 0.5rem;
+              padding-top: 0;
+              hyphens: auto;
+              word-wrap: break-word;
+              overflow-wrap: break-word;
+              max-width: 450px;
+            }
+          }
+        }
+      }
+    }
+    .chatroom-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 0.5rem;
+      .chatroom-input {
+        width: 100%;
+        height: 40px;
+        border: 0.5px solid rgba(255, 255, 255, 0.288);
+        border-radius: 10px;
+        padding: 0 1rem;
+        font-size: 1rem;
+        font-weight: 500;
+        color: $bg;
+        background-color: #fff;
+        outline: none;
+        input {
+          width: 100%;
+          height: 100%;
+          border: none;
+          outline: none;
+          background-color: transparent;
+        }
+      }
+      .chatroom-send {
+        width: 45px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $bg;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        i {
+          color: #fff;
+        }
+      }
+    }
+  }
+}

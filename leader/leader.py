@@ -156,3 +156,8 @@ def doubt_reply():
 @leader.route("/send_notification")
 def send_notification():
     return render_template("send_notification.html")
+
+
+@leader.route("/discord")
+def l_chatroom():
+    return render_template("l_chatroom.html")
