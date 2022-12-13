@@ -15,32 +15,31 @@ def admin_home():
 
 @admin.route("/manage_leaders")
 def manage_leaders():
-    data = selectall("SELECT id,Fname,Lname,Email FROM `leader`")
+    data = selectall("SELECT userid,name,email FROM `user`")
     return render_template("manage_leaders.html", data=data)
 
 
-@admin.route("/leaders/new")
+@admin.route("/new_leader")
 def add_leader():
     return render_template("add_leader.html")
 
 
-@admin.route("/leaders/new1", methods=["post"])
+@admin.route("/new_leader1", methods=["post"])
 def add_leader1():
-    Fname = request.form["firstname"]
-    Lname = request.form["lastname"]
-    Gender = request.form["gender"]
-    Place = request.form["place"]
-    Pin = request.form["pin"]
-    Post = request.form["post"]
-    Email = request.form["email"]
-    Phone = request.form["phone"]
-    Username = request.form["username"]
+    name = request.form["name"]
+    gender = request.form["gender"]
+    place = request.form["place"]
+    pin = request.form["pin"]
+    post = request.form["post"]
+    email = request.form["email"]
+    phone = request.form["phone"]
+    address = request.form["address"]
     password = request.form["password"]
     qry = "insert into login values(Null,%s,%s,'leader')"
-    val = (Username, password)
+    val = (name, password)
     id = iud(qry, val)
-    qry1 = "insert  into leader values (Null,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-    val1 = (str(id), Fname, Lname, Gender, Place, Pin, Post, Email, Phone)
+    qry1 = "insert  into user values (%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+    val1 = (id, name, email,address,post,pin,phone,place,gender)
     iud(qry1, val1)
     return """<script>alert("added");window.location="/admin/manage_leaders"</script>"""
 
@@ -92,21 +91,21 @@ def delete_work():
 @admin.route("/assign_works")
 def assign_works():
     works = selectall("SELECT * FROM `works`")
-    leaders = selectall("SELECT lid,Fname,Lname FROM `leader`")
-    assign = selectall("SELECT * FROM `assign_to_leader`")
+    leaders = selectall("SELECT userid,name FROM `user`")
+    assign = selectall("SELECT * FROM `worktoleader`")
     filtered_works = list(
         filter(lambda x: x["workid"] not in [y["wid"] for y in assign], works)
     )
 
-    assignedstatus = selectall(
-        "SELECT leader.lid, leader.fname, leader.lname ,works.workid, works.workname, works.status from leader JOIN assign_to_leader on assign_to_leader.lid = leader.lid JOIN works ON assign_to_leader.wid = works.workid"
-    )
+    # assignedstatus = selectall(
+    #     "SELECT user.userid, user.name ,works.workid, works.workname, works.status from user JOIN worktoleader on worktoleader.lid = user.userid JOIN works ON worktoleader.workid = works.workid"
+    # )
 
     return render_template(
         "assign_work.html",
         works=filtered_works,
         leaders=leaders,
-        assigned=assignedstatus,
+        # assigned=assignedstatus,
     )
 
 
@@ -125,3 +124,5 @@ def assign_works1():
 @admin.route("/complaint_reply")
 def complaint_reply():
     return render_template("complaint_reply.html")
+
+

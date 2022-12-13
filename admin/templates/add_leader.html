@@ -1,28 +1,20 @@
 {% extends "admin_layout.html" %} {% block heading %}
-<h1 class="head">Add Leader</h1>
+<h1 class="head">ADD LEADER</h1>
 {% endblock %} {% block content %}
 <div class="manage-user">
   <h1 class="heading">Add Leader</h1>
-  <form method="post" action="/leaders/new1" class="add-leader">
+  <form method="post" action="new_leader1" class="add-leader">
     <div class="col">
       <p class="row">
         <input
+        
           type="text"
-          name="firstname"
+          name="name"
           id="firstname"
           placeholder="First Name"
           required
         />
-        <label for="firstname">First Name </label>
-      </p>
-      <p class="row">
-        <input
-          type="text"
-          name="lastname"
-          id="lastname"
-          placeholder="Last Name"
-        />
-        <label for="lastname">Last Name </label>
+        <label for="name"> Name </label>
       </p>
     </div>
     <fieldset class="gender-col">
@@ -69,8 +61,8 @@
       </p>
     </div>
     <p class="row">
-      <input type="text" name="username" placeholder="UserName" required />
-      <label for="username">UserName </label>
+      <input type="text" name="address" placeholder="Address" required />
+      <label for="Address">Address </label>
     </p>
     <p class="row">
       <input

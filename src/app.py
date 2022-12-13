@@ -53,28 +53,26 @@ def login():
         flash("incorrect username or password.")
         return """<script>window.location="/";</script>"""
     elif res["type"] == "admin":
-        id = res["id"]
-        userdata = selectall2("select * from login where id=%s", (id))
-        print(userdata)
-        session["user"] = id
+        id = res["userid"]
+        # userdata = selectall2("select * from login where userid=%s", (id))
+        session["userid"] = id
         return """<script>alert("welcome to admin");window.location="/admin"</script>"""
     elif res["type"] == "leader":
-        id = res["id"]
-        userdata = selectall2("select * from leader where lid=%s", (id))
-        set_session(userdata[0]["lid"], res["uname"], userdata[0]["email"])
+        id = res["userid"]
+        # userdata = selectall2("select * from login where userid=%s", (id))
+        session["userid"] = id
         return (
             """<script>alert("welcome to leader");window.location="/leader"</script>"""
         )
     elif res["type"] == "member":
         id = res["id"]
-        session["lid"] = id
+        session["userid"] = id
         return (
             """<script>alert("welcome to member");window.location="/member"</script>"""
         )
     else:
         flash("incorrect username or password.")
         return """<script>window.location="/";</script>"""
-
 
 # login required decorator
 def login_required(f):
@@ -113,6 +111,7 @@ def handle_send_message(data):
     )
     emit("receive_message", data, room=1001)
 
+# if __name__ == "__main__":
+#     socketio.run(app,allow_unsafe_werkzeug=True,debug=True)
 
-if __name__ == "__main__":
-    socketio.run(app)
+app.run(debug=True)

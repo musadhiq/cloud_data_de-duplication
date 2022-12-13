@@ -3,29 +3,19 @@
 {% endblock %} {% block content %}
 <div class="manage-user">
   <h1 class="heading">Edit Profile</h1>
-  <form action="/leader/update" method="post" class="edit-leader">
+  <form action="update" method="post" class="edit-leader">
     <input type="text" name="lid" value="{{data.id}}" hidden />
     <div class="col">
       <p class="row">
         <input
           type="text"
-          name="firstname"
+          name="name"
           id="firstname"
-          placeholder="First Name"
-          value="{{data.fname}}"
+          placeholder="Name"
+          value="{{data.name}}"
           required
         />
-        <label for="firstname">First Name </label>
-      </p>
-      <p class="row">
-        <input
-          type="text"
-          name="lastname"
-          id="lastname"
-          placeholder="Last Name"
-          value="{{data.lname}}"
-        />
-        <label for="lastname">Last Name </label>
+        <label for="firstname"> Name </label>
       </p>
     </div>
     <fieldset class="gender-col">
@@ -98,6 +88,10 @@
           required
         />
         <label for="phone">Phone Number</label>
+      </p>
+      <p class="row">
+        <input type="text" name="address" placeholder="Address" value="{{data.address}}" />
+        <label for="Address">Address </label>
       </p>
     </div>
     <p class="btn-grp">

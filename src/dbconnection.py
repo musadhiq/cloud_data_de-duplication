@@ -3,8 +3,8 @@ import pymysql
 hostname = "localhost"
 username = "root"
 portnum = 3306
-password = "12345678"
-dbname = "Jr1FnFEvhE"
+password = ""
+dbname = "cloud"
 
 
 def iud(qry, val):

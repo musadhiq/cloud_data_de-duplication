@@ -14,9 +14,9 @@ def leader_home():
 
 @leader.route("/edit_profile")
 def edit_profile():
-    id = session["lid"]
+    id = session["userid"]
     print(id)
-    qry = "SELECT * FROM `leader` WHERE `lid`=%s"
+    qry = "SELECT * FROM `user` WHERE `userid`=%s"
     val = id
     res = selectone(qry, val)
     return render_template("edit_profile.html", data=res)
@@ -24,24 +24,25 @@ def edit_profile():
 
 @leader.route("/update", methods=["post"])
 def update_leader():
-    Lid = request.form["lid"]
-    Fname = request.form["firstname"]
-    Lname = request.form["lastname"]
-    Gender = request.form["gender"]
-    Place = request.form["place"]
-    Pin = request.form["pin"]
-    Post = request.form["post"]
-    Email = request.form["email"]
-    Phone = request.form["phone"]
-    qry = "update leader set Fname=%s,Lname=%s,Gender=%s,Place=%s,Pin=%s,Post=%s,Email=%s,Phone=%s where id=%s"
-    val = (Fname, Lname, Gender, Place, Pin, Post, Email, Phone, Lid)
+    id = session["userid"]
+    name = request.form["name"]
+    gender = request.form["gender"]
+    place = request.form["place"]
+    pin = request.form["pin"]
+    post = request.form["post"]
+    email = request.form["email"]
+    phone = request.form["phone"]
+    address = request.form["address"]
+
+    qry = "update user set name=%s,gender=%s,place=%s,pin=%s,post=%s,email=%s,phone=%s,address=%s where userid=%s"
+    val = (name,gender,place,pin,post,email,phone,address,id)
     iud(qry, val)
     return """<script>alert("success");window.location="/leader"</script>"""
 
 
 @leader.route("/manage_members")
 def manage_members():
-    data = selectall("SELECT lid,Fname,Lname,Email FROM `member`")
+    data = selectall("SELECT user.userid,user.name,user.email ,login.userid FROM `user` JOIN login on login.type = `member`")
     return render_template("manage_members.html", data=data)
 
 

@@ -122,12 +122,9 @@ ol {
         letter-spacing: 1px;
         border-radius: 7px;
         outline: none;
-        border: 0.8rem solid white;
-        color: white;
-        &:hover {
-          border: none;
-          background-color: $black;
-        }
+        border: none;
+        background-color: $black;
+        color: #fff;
       }
     }
   }

@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="{{url_for('static',filename = 'javascript/fontawsome.js')}}""></script>
+    <script src="{{url_for('static',filename = 'javascript/fontawsome.js')}}"></script>
     <script
 src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"
 integrity="sha512-iWPnCISAd/J+ZacwV2mbNLCaPGRrRo5OS81lKTVPtRg1wGTC20Cfmp5Us5RcbLv42QLdbAWl0MI57yox5VecQg=="
@@ -14,12 +14,12 @@ referrerpolicy="no-referrer"
     <!-- styles -->
     <link
       rel="stylesheet"
-      href="{{url_for('static',filename = 'css/style.css')}}"
+      href="../static/css/style.css"
     />
     <title>{% block title %} {% endblock %}</title>
   </head>
   <body>
-    {%block page_content%} {%endblock%}
+    {% block body %} {% endblock %}
     <script src="{{url_for('static',filename = 'javascript/app.js')}}"></script>
   </body>
 </html>

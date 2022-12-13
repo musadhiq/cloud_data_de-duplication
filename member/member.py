@@ -1,70 +1,92 @@
 from flask import *
 from src.dbconnection import *
-from datetime import datetime
 
 member = Blueprint("member", __name__, template_folder="templates")
 
 
-@member.route("/")
-def member_home():
-    notification_data = selectall(
-        "SELECT * FROM `notification` order by notificationid desc"
-    )
-    return render_template("member_home.html", notificationdata=notification_data)
+# login user
+@member.route("/login",methods=['post'])
+def memberLogin():
+    username = request.form['username']
+    password = request.form['password']
 
-
-@member.route("/manage_profile")
-def member_profile():
-    id = session["lid"]
-    qry = "SELECT * FROM `member` WHERE `lid`=%s"
-    val = id
+    qry = "SELECT * FROM `login` WHERE `uname`=%s AND `password`=%s"
+    val = (username, password)
     res = selectone(qry, val)
-    return render_template("m_editprofile.html", data=res)
+    if res is None:
+        return jsonify({'result':"invalid"})
+    else:
+        return jsonify({"user":res})
+
+  
+# get User
+@member.route("/get_user", methods=['post'])
+def get_user():
+    id = request.form['userid']
+    qry = "select * from users where userid=%s"
+    res = selectone(qry, id)
+    return jsonify({"data":res})
 
 
-@member.route("/update", methods=["post"])
+# update user profile
+@member.route("/update_profile", methods=["post"])
 def update_member():
-    Lid = request.form["lid"]
-    Fname = request.form["firstname"]
-    Lname = request.form["lastname"]
+    id = request.form["userid"]
+    name = request.form["name"]
     Gender = request.form["gender"]
     Place = request.form["place"]
     Pin = request.form["pin"]
     Post = request.form["post"]
     Email = request.form["email"]
     Phone = request.form["phone"]
-    qry = "update member set fname=%s,lname=%s,gender=%s,place=%s,pin=%s,post=%s,email=%s,phone=%s where lid=%s"
-    val = (Fname, Lname, Gender, Place, Pin, Post, Email, Phone, Lid)
-    print(Lid)
+    qry = "update user set name=%s,gender=%s,place=%s,pin=%s,post=%s,email=%s,phone=%s where id=%s"
+    val = (name, Gender, Place, Pin, Post, Email, Phone, id)
     iud(qry, val)
-    return """<script>alert("success");window.location="/member"</script>"""
+    return jsonify({"status":"success"})
 
 
-@member.route("/works")
+# update Work Status
+@member.route("/update_work",methods=['post'])
 def member_work():
-    return render_template("member_work.html")
+    status = request.form['status']
+    workid = request.form['workid']
+
+    qry = "update works set status=%s where workid=%s"
+    val =(status,workid)
+    iud(qry,val)
+    return jsonify({"status": "success"})
 
 
-@member.route("/notifications")
-def notifications():
-    return render_template("notification.html")
-
-
-@member.route("/send_feedback")
+# send Feedback
+@member.route("/send_feedback",methods=['post'])
 def send_feedback():
-    return render_template("send_feedback.html")
+    feedback = request.form['feedback']
+    userid = request.form['userid']
+
+    qry ="update feedbacks set feedback=%s,userid=%s" 
+    val =(feedback,userid)
+    iud(qry,val)
+    return jsonify({"status":"success"})
 
 
-@member.route("/ask_doubt")
-def ask_doubt():
-    return render_template("ask_doubt.html")
+# send complaint
+@member.route("/send_complaint",methods=['post'])
+def send_complaint():
+    complaint = request.form['complaint']
+    userid = request.form['userid']
+
+    qry ="update complaints set complaint=%s,userid=%s" 
+    val =(complaint,userid)
+    iud(qry,val)
+    return jsonify({"status":"success"})
 
 
-@member.route("/post_complaint")
-def post_complaint():
-    return render_template("post_complaint.html")
+# view complaint reply
+@member.route("/view_creply",methods=['post'])
+def view_creply():
+    userid = request.form['userid']
+    qry = "select * from complaints where userid=%s"
+    res = selectall2(qry,userid)
+    return jsonify({"data":res})
 
 
-@member.route("/discord")
-def m_chatroom():
-    return render_template("m_chatroom.html")

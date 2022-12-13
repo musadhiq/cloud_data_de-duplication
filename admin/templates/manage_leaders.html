@@ -3,14 +3,14 @@
 {% endblock %} {% block content %}
 <div class="users">
   <div class="user-top">
-    <a href="/leaders/new" class="add-leader">+ add leader</a>
+    <a href="new_leader" class="add-leader">+ add leader</a>
   </div>
   <ul class="user-items">
     {% for item in data %}
     <li class="item">
       <div class="main">
-        <h1>{{item.Fname}} {{item.Lname}}</h1>
-        <a href="#">{{item.Email}}</a>
+        <h1>{{item.name}}</h1>
+        <a href="#">{{item.email}}</a>
       </div>
       <div class="actions">
         <ul>
