@@ -1,0 +1,120 @@
+{% extends "admin_layout.html" %} {% block content %}
+<div class="content-wrapper">
+  <div class="page-header">
+    <h3 class="page-title">Manage Works</h3>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Manage Works</li>
+      </ol>
+    </nav>
+  </div>
+
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <a href="manage_works/add_work" class="col-lg-10">
+      <button type="button" class="btn btn-secondary btn-md btn-block">
+        <i class="h4 mdi mdi-account-plus"></i
+        ><span class="">Click to Add New Work</span>
+      </button>
+    </a>
+    <div class="col-lg-10 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Available Works</h4>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Work Name</th>
+                  <th>Description</th>
+                  <th>Deadline</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Work one</td>
+                  <td
+                    style="
+                      max-width: 260px;
+                      overflow: hidden;
+                      padding-right: 10px;
+                    "
+                  >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
+                    fuga, tenetur rerum ad ipsa nulla libero voluptatibus
+                    reiciendis commodi error.
+                  </td>
+                  <td class="text-danger">May 22</td>
+                  <td>
+                    <div
+                      class="btn-group"
+                      role="group"
+                      aria-label="Basic example"
+                    >
+                      <a href="manage_users/edit_user?id=111" class="pr-2"
+                        ><button type="button" class="btn btn-secondary">
+                          <i class="mdi mdi-tooltip-edit"></i></button
+                      ></a>
+                      <a href="manage_users/delete_user?id=111" class="pr-2">
+                        <button type="button" class="btn btn-danger">
+                          <i class="mdi mdi-delete-variant"></i></button
+                      ></a>
+                      <a href="manage_users/delete_user?id=111">
+                        <button type="button" class="btn btn-secondary">
+                          <i class="mdi mdi-eye"></i></button
+                      ></a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-10 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Assigned Works</h4>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Work Name</th>
+                  <th>Assigned to</th>
+                  <th>status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Work one</td>
+                  <td>jacob</td>
+                  <td class="text-danger">Pending</td>
+                  <td>
+                    <div
+                      class="btn-group"
+                      role="group"
+                      aria-label="Basic example"
+                    >
+                      <a href="manage_users/delete_user?id=111" class="pr-2">
+                        <button type="button" class="btn btn-danger">
+                          <i class="mdi mdi-delete-variant"></i></button
+                      ></a>
+                      <a href="manage_users/delete_user?id=111">
+                        <button type="button" class="btn btn-secondary">
+                          <i class="mdi mdi-eye"></i></button
+                      ></a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

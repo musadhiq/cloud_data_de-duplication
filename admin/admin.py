@@ -9,23 +9,26 @@ date = datetime.now()
 
 @admin.route("/")
 def admin_home():
-    works = selectall("SELECT * FROM `works`")
-    return render_template("admin_home.html", works=works)
+    # works = selectall("SELECT * FROM `works`")
+    return render_template("index.html")
 
 
-@admin.route("/manage_leaders")
-def manage_leaders():
-    data = selectall("SELECT userid,name,email FROM `user`")
-    return render_template("manage_leaders.html", data=data)
+# user management
 
 
-@admin.route("/new_leader")
-def add_leader():
-    return render_template("add_leader.html")
+@admin.route("/manage_users")
+def manage_users():
+    # data = selectall("SELECT userid,name,email FROM `user`")
+    return render_template("manage_users.html")
 
 
-@admin.route("/new_leader1", methods=["post"])
-def add_leader1():
+@admin.route("/manage_users/new_user")
+def new_user():
+    return render_template("add_user.html")
+
+
+@admin.route("/add_user", methods=["post"])
+def add_user():
     name = request.form["name"]
     gender = request.form["gender"]
     place = request.form["place"]
@@ -39,22 +42,22 @@ def add_leader1():
     val = (name, password)
     id = iud(qry, val)
     qry1 = "insert  into user values (%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-    val1 = (id, name, email,address,post,pin,phone,place,gender)
+    val1 = (id, name, email, address, post, pin, phone, place, gender)
     iud(qry1, val1)
     return """<script>alert("added");window.location="/admin/manage_leaders"</script>"""
 
 
-@admin.route("/leaders/edit")
-def edit_leader():
-    id = request.args.get("id")
-    session["id"] = id
-    qry = "SELECT * FROM `leader` WHERE `id`=%s"
-    val = id
-    res = selectone(qry, val)
-    return render_template("edit_leader.html", data=res)
+@admin.route("/manage_users/edit_user")
+def edit_user():
+    # id = request.args.get("id")
+    # session["id"] = id
+    # qry = "SELECT * FROM `leader` WHERE `id`=%s"
+    # val = id
+    # res = selectone(qry, val)
+    return render_template("edit_user.html")
 
 
-@admin.route("/leaders/delete")
+@admin.route("/user/delete")
 def delete_leader():
     id = request.args.get("id")
     qry = "DELETE FROM `leader` WHERE `id`=%s"
@@ -64,9 +67,17 @@ def delete_leader():
     )
 
 
-@admin.route("/add_work")
+# end user management
+
+# works management
+@admin.route("/manage_works")
+def manage_works():
+    return render_template("manage_works.html")
+
+
+@admin.route("/manage_works/add_work")
 def add_work():
-    return render_template("add_works.html")
+    return render_template("add_work.html")
 
 
 @admin.route("/add_work1", methods=["post"])
@@ -124,5 +135,3 @@ def assign_works1():
 @admin.route("/complaint_reply")
 def complaint_reply():
     return render_template("complaint_reply.html")
-
-

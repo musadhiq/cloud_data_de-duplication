@@ -1,0 +1,54 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"
+      integrity="sha512-iWPnCISAd/J+ZacwV2mbNLCaPGRrRo5OS81lKTVPtRg1wGTC20Cfmp5Us5RcbLv42QLdbAWl0MI57yox5VecQg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename ='vendors/mdi/css/materialdesignicons.min.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename ='vendors/css/vendor.bundle.base.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename ='vendors/jvectormap/jquery-jvectormap.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename ='vendors/owl-carousel-2/owl.theme.default.min.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename ='vendors/flag-icon-css/css/flag-icon.min.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename ='vendors/owl-carousel-2/owl.carousel.min.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename ='style/style.css')}}"
+    />
+    <title>{% block title %} {% endblock %}</title>
+  </head>
+  <body>
+    {% block body %} {% endblock %}
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{{url_for('static',filename = 'vendors/js/vendor.bundle.base.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/off-canvas.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/hoverable-collapse.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/misc.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/settings.js')}}"></script>
+    <script src="{{url_for('static',filename = 'js/todolist.js')}}"></script>
+  </body>
+</html>

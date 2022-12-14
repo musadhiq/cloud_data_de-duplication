@@ -1,0 +1,130 @@
+{% extends "admin_layout.html" %} {% block content %}
+<div class="content-wrapper">
+  <div class="page-header">
+    <h3 class="page-title">Add User</h3>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Add User</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Add User</h4>
+          <p class="card-description">Enter User details</p>
+          <form class="forms-sample">
+            <!-- username -->
+            <div class="form-group">
+              <label for="exampleInputUsername1">Username</label>
+              <input
+                type="text"
+                class="form-control text-light"
+                id="exampleInputUsername1"
+                placeholder="Username"
+              />
+            </div>
+
+            <!-- email phone -->
+            <div class="container px-0">
+              <div class="row">
+                <div class="form-group col">
+                  <label for="exampleInputEmail1">Email</label>
+                  <input
+                    type="text"
+                    class="form-control text-light"
+                    placeholder="Email"
+                  />
+                </div>
+                <div class="form-group col">
+                  <label for="exampleInputEmail1">Phone</label>
+                  <input
+                    type="number"
+                    class="form-control text-light"
+                    placeholder="Phone"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="container px-0">
+              <div class="row">
+                <div class="form-group col">
+                  <label for="exampleInputEmail1">Pin</label>
+                  <input
+                    type="number"
+                    class="form-control text-light"
+                    placeholder="Pin"
+                  />
+                </div>
+                <div class="form-group col">
+                  <label for="exampleInputEmail1">Post</label>
+                  <input
+                    type="text"
+                    class="form-control text-light"
+                    placeholder="Post"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- address -->
+            <div class="form-group">
+              <label for="exampleInputEmail1">Personal address</label>
+              <textarea
+                class="form-control text-light"
+                placeholder="Address"
+                rows="4"
+              ></textarea>
+            </div>
+            <!-- address -->
+            <div class="form-group">
+              <label for="exampleInputEmail1">Place</label>
+              <input
+                type="text"
+                class="form-control text-light"
+                placeholder="Place"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input
+                type="password"
+                class="form-control text-light"
+                id="exampleInputPassword1"
+                placeholder="Password"
+              />
+            </div>
+            <div class="container px-0">
+              <div class="row">
+                <div class="form-group col">
+                  <label class="col-form-label">Gender</label>
+                  <div class="px-0">
+                    <select class="form-control">
+                      <option>Male</option>
+                      <option>Female</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group col">
+                  <label class="col-form-label">Role</label>
+                  <div class="px-0">
+                    <select class="form-control">
+                      <option>Leader</option>
+                      <option>Member</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+            <button class="btn btn-dark">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

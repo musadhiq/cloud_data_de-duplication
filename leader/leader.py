@@ -35,14 +35,16 @@ def update_leader():
     address = request.form["address"]
 
     qry = "update user set name=%s,gender=%s,place=%s,pin=%s,post=%s,email=%s,phone=%s,address=%s where userid=%s"
-    val = (name,gender,place,pin,post,email,phone,address,id)
+    val = (name, gender, place, pin, post, email, phone, address, id)
     iud(qry, val)
     return """<script>alert("success");window.location="/leader"</script>"""
 
 
 @leader.route("/manage_members")
 def manage_members():
-    data = selectall("SELECT user.userid,user.name,user.email ,login.userid FROM `user` JOIN login on login.type = `member`")
+    data = selectall(
+        "SELECT user.userid,user.name,user.email ,login.userid FROM `user` JOIN login on login.type = `member`"
+    )
     return render_template("manage_members.html", data=data)
 
 
