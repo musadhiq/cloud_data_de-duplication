@@ -111,5 +111,22 @@ def handle_send_message(data):
     emit("receive_message", data, room=1001)
 
 
+# error handler
+@app.errorhandler(404)
+def page_not_found(e):
+    return (
+        render_template(
+            "404.html", message="The page you’re looking for was not found.", error=404
+        ),
+        404,
+    )
+
+
+@app.errorhandler(500)
+def page_not_found(e):
+
+    return render_template("404.html", message="Internal server error!", error=500), 500
+
+
 if __name__ == "__main__":
     socketio.run(app, allow_unsafe_werkzeug=True, debug=True)

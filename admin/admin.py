@@ -77,10 +77,10 @@ def manage_works():
 
 @admin.route("/manage_works/add_work")
 def add_work():
-    return render_template("add_work.html")
+    return render_template("add_works.html")
 
 
-@admin.route("/add_work1", methods=["post"])
+@admin.route("/add_work", methods=["post"])
 def add_work1():
     title = request.form["title"]
     description = request.form["description"]
@@ -99,7 +99,7 @@ def delete_work():
     return """<script>alert("deleted");window.location="/admin"</script>"""
 
 
-@admin.route("/assign_works")
+@admin.route("/manage_works/assign")
 def assign_works():
     works = selectall("SELECT * FROM `works`")
     leaders = selectall("SELECT userid,name FROM `user`")
@@ -132,6 +132,11 @@ def assign_works1():
     )
 
 
-@admin.route("/complaint_reply")
-def complaint_reply():
-    return render_template("complaint_reply.html")
+# end works management
+
+#  team
+
+
+@admin.route("/manage_teams")
+def teams():
+    return render_template("teams.html")

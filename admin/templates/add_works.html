@@ -1,36 +1,49 @@
-{% extends "admin_layout.html" %} {% block heading %}
-<h1 class="head">Works</h1>
-{% endblock %} {% block content %}
+{% extends "admin_layout.html" %} {% block content %}
+<div class="content-wrapper">
+  <div class="page-header">
+    <h3 class="page-title">Add Work</h3>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Add Work</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Add Work</h4>
+          <p class="card-description">new work details</p>
+          <form class="forms-sample">
+            <!-- workname -->
+            <div class="form-group">
+              <label for="exampleInputUsername1">Work Name</label>
+              <input
+                type="text"
+                class="form-control text-light"
+                id="exampleInputUsername1"
+                name="title"
+                placeholder="Work Name"
+              />
+            </div>
 
-<div class="manage-user add-works">
-  <h1 class="heading">Add Work</h1>
-  <form method="post" action="add_work1" class="add-work">
-    <p class="row">
-      <input
-        type="text"
-        name="title"
-        id="workname"
-        placeholder="Work Name "
-        required
-      />
-      <label for="workname">Work Name </label>
-    </p>
-    <p class="row">
-      <textarea
-        name="description"
-        id="description"
-        placeholder="Add Description...."
-        rows="15"
-      ></textarea>
-      <label for="description">Description </label>
-    </p>
-    <!-- {% for message in get_flashed_messages() %}
-      <div class="alert-error">Error : {{ message }}</div>
-      {% endfor %} -->
-    <p class="btn-grp">
-      <input type="reset" value="Clear" />
-      <input type="submit" value="Add Work" />
-    </p>
-  </form>
+            <!-- description -->
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Description</label>
+              <textarea
+                class="form-control text-light"
+                placeholder="say something..."
+                rows="4"
+              ></textarea>
+            </div>
+            <button class="btn btn-dark">Cancel</button>
+            <button type="submit" class="btn btn-primary mr-2">Add</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

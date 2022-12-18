@@ -1,16 +1,16 @@
 {% extends "admin_layout.html" %} {% block content %}
 <div class="content-wrapper">
   <div class="page-header">
-    <h3 class="page-title">Manage Users</h3>
+    <h3 class="page-title">Teams</h3>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Manage Users</li>
+        <li class="breadcrumb-item active" aria-current="page">Manage Teams</li>
       </ol>
     </nav>
   </div>
 
-  <div class="d-flex flex-column align-items-center">
+  <div class="d-flex flex-column justify-content-center align-items-center">
     <div
       class="d-flex justify-content-center align-items-center col-lg-10 mb-5"
     >
@@ -23,8 +23,8 @@
         <input
           type="text"
           class="form-control text-white"
-          placeholder="Search User"
-          aria-label="Search User"
+          placeholder="Search Team"
+          aria-label="Search Team"
           aria-describedby="basic-addon1"
         />
       </div>
@@ -35,10 +35,10 @@
             class="d-flex align-items-center justify-content-center px-4 py-2 rounded border-0 outline-0 text-danger"
           >
             <span>
-              <i class="h4 mdi mdi-account-plus px-2"></i>
+              <i class="h4 mdi mdi-library-plus px-2"></i>
             </span>
 
-            <span class="">Add User</span>
+            <span class="">Add Team</span>
           </button>
         </a>
       </div>
@@ -46,35 +46,31 @@
     <div class="col-lg-10 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">User Details</h4>
+          <h4 class="card-title">Teams</h4>
           <div class="table-responsive">
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th>User</th>
-                  <th>Email</th>
-                  <th>Role</th>
-                  <th>Actions</th>
+                  <th>Team Name</th>
+                  <th>Leader</th>
+                  <th>Status</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody class="text-white">
                 <tr>
-                  <td>Jacob</td>
-                  <td>jacod@text.com</td>
-                  <td class="text-danger">Leader</td>
+                  <td>Team one</td>
+                  <td>jacod</td>
+                  <td class="text-danger">Active</td>
                   <td>
                     <div
                       class="btn-group"
                       role="group"
                       aria-label="Basic example"
                     >
-                      <a href="manage_users/edit_user?id=111" class="pr-4"
-                        ><button type="button" class="btn btn-secondary">
-                          <i class="mdi mdi-tooltip-edit"></i></button
-                      ></a>
                       <a href="manage_users/delete_user?id=111">
-                        <button type="button" class="btn btn-primary">
-                          <i class="mdi mdi-delete-variant"></i></button
+                        <button type="button" class="btn btn-secondary">
+                          <i class="mdi mdi-eye"></i></button
                       ></a>
                     </div>
                   </td>

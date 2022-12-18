@@ -11,12 +11,38 @@
   </div>
 
   <div class="d-flex flex-column justify-content-center align-items-center">
-    <a href="manage_works/add_work" class="col-lg-10">
-      <button type="button" class="btn btn-secondary btn-md btn-block">
-        <i class="h4 mdi mdi-account-plus"></i
-        ><span class="">Click to Add New Work</span>
-      </button>
-    </a>
+    <div
+      class="d-flex justify-content-center align-items-center col-lg-10 mb-5"
+    >
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"
+            ><i class="mdi mdi-account-search"></i
+          ></span>
+        </div>
+        <input
+          type="text"
+          class="form-control text-white"
+          placeholder="Search Work name"
+          aria-label="Search Work name"
+          aria-describedby="basic-addon1"
+        />
+      </div>
+      <div class="w-25">
+        <a href="manage_works/add_work" class="">
+          <button
+            type="button"
+            class="d-flex align-items-center justify-content-center px-4 py-2 rounded border-0 outline-0 text-danger"
+          >
+            <span>
+              <i class="h4 mdi mdi-account-plus px-2"></i>
+            </span>
+
+            <span class="">Add Work</span>
+          </button>
+        </a>
+      </div>
+    </div>
     <div class="col-lg-10 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
@@ -31,7 +57,7 @@
                   <th>Actions</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody class="text-white">
                 <tr>
                   <td>Work one</td>
                   <td
@@ -52,10 +78,6 @@
                       role="group"
                       aria-label="Basic example"
                     >
-                      <a href="manage_users/edit_user?id=111" class="pr-2"
-                        ><button type="button" class="btn btn-secondary">
-                          <i class="mdi mdi-tooltip-edit"></i></button
-                      ></a>
                       <a href="manage_users/delete_user?id=111" class="pr-2">
                         <button type="button" class="btn btn-danger">
                           <i class="mdi mdi-delete-variant"></i></button
@@ -87,7 +109,7 @@
                   <th>Actions</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody class="text-white">
                 <tr>
                   <td>Work one</td>
                   <td>jacob</td>
