@@ -140,3 +140,8 @@ def assign_works1():
 @admin.route("/manage_teams")
 def teams():
     return render_template("teams.html")
+
+
+@admin.route("/manage_teams/new_team")
+def add_team():
+    return render_template("add_team.html")
