@@ -1,10 +1,10 @@
-{% extends "admin_layout.html" %} {% block content %}
+{% extends "leader_layout.html" %} {% block content %}
 <div class="content-wrapper">
   <div class="page-header">
     <h3 class="page-title">Manage Works</h3>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+        <li class="breadcrumb-item"><a href="/leader">Leader</a></li>
         <li class="breadcrumb-item active" aria-current="page">Manage Works</li>
       </ol>
     </nav>
@@ -28,20 +28,20 @@
           aria-describedby="basic-addon1"
         />
       </div>
-      <div class="w-25">
+      <!-- <div class="w-25">
         <a href="manage_works/add_work" class="">
           <button
             type="button"
             class="d-flex align-items-center justify-content-center px-4 py-2 rounded border-0 outline-0 text-danger"
           >
             <span>
-              <i class="h4 mdi mdi-account-plus px-2"></i>
+              <i class="h4 mdi mdi-call-split px-2"></i>
             </span>
 
-            <span class="">Add Work</span>
+            <span class="">Split Work</span>
           </button>
         </a>
-      </div>
+      </div> -->
     </div>
     <div class="col-lg-10 grid-margin stretch-card">
       <div class="card">
@@ -82,9 +82,10 @@
                         <button type="button" class="btn btn-danger">
                           <i class="mdi mdi-delete-variant"></i></button
                       ></a>
-                      <button type="button" class="btn btn-secondary toggle-btn">
-                        <i class="mdi mdi-eye"></i></button
-                    >
+                    
+                        <button type="button" class="btn btn-secondary toggle-btn">
+                          <i class="mdi mdi-eye"></i></button
+                      >
                     </div>
                   </td>
                 </tr>
@@ -97,7 +98,7 @@
     <div class="col-lg-10 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Assigned Works</h4>
+          <h4 class="card-title">Completed Works</h4>
           <div class="table-responsive">
             <table class="table table-hover">
               <thead>
@@ -112,7 +113,7 @@
                 <tr>
                   <td>Work one</td>
                   <td>jacob</td>
-                  <td class="text-danger">Pending</td>
+                  <td class="text-info">Completed</td>
                   <td>
                     <div
                       class="btn-group"
@@ -123,48 +124,49 @@
                         <button type="button" class="btn btn-danger">
                           <i class="mdi mdi-delete-variant"></i></button
                       ></a>
-                 
-                        <button type="button" class="btn btn-secondary toggle-btn">
-                          <i class="mdi mdi-eye"></i></button
-                      >
                     </div>
                   </td>
                 </tr>
               </tbody>
             </table>
-          </div>
         </div>
-      </div>
     </div>
-    <div class="card position-absolute hidden  work-popup">
-      <div class="card-body">
-          <div class="close text-white">
-              <i class="mdi mdi-close toggle-btn"></i>
-          </div>
-          <h4 class="card-title">Work Name</h4>
-          <p class="card-description" style="max-width: 500px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate fugiat deleniti aliquam rem soluta distinctio odit impedit incidunt optio voluptatibus?</p>
-          <div class="actions d-flex align-items-center justify-content-between ">
-                      <div class="d-flex">
-                          <select name="status" class="form-control text-light mr-3" style="width: 150px;">
-                              <option value="in-progress">In Progress</option>
-                              <option value="completed">Completed</option>
-                          </select>
-                          <button type="button" class="btn btn-success">
-                         <i class="mdi mdi-content-save"></i>Save</button>
-                      </div>      
-      </div>
+</div>
+</div>
+<!--  -->
+<div class="card position-absolute hidden  work-popup">
+    <div class="card-body">
+        <div class="close text-white">
+            <i class="mdi mdi-close toggle-btn"></i>
+        </div>
+        <h4 class="card-title">Work Name</h4>
+        <p class="card-description" style="max-width: 500px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate fugiat deleniti aliquam rem soluta distinctio odit impedit incidunt optio voluptatibus?</p>
+        <div class="actions d-flex align-items-center justify-content-between">
+              <a href="">
+                <button type="button" class="btn btn-danger">
+                  <i class="mdi mdi-call-split"></i>Split Work</button></a>
+                    <div class="d-flex">
+                        <select name="status" class="form-control text-light" style="width: 150px;">
+                            <option value="in-progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                        <button type="button" class="btn btn-success">
+                       <i class="mdi mdi-content-save"></i>Save</button>
+                    </div>      
     </div>
-    </div>
-  </div>
+</div>
+</div>
+<!--  -->
+</div>
 </div>
 <script>
 const EditBtn = document.querySelectorAll(".toggle-btn");
 const card = document.querySelector(".work-popup");
 EditBtn.forEach((btn)=>{
-  btn.addEventListener("click",()=>{
-      card.classList.toggle("hidden");
+    btn.addEventListener("click",()=>{
+        card.classList.toggle("hidden");
 
-  })
+    })
 })
 
 </script>

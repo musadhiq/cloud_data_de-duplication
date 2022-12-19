@@ -167,3 +167,6 @@ span.username{
 .table-hover tbody tr:hover{
     background-color: rgba(124, 124, 124, 0.233) !important;
 }
+.hidden{
+    display: none;
+}

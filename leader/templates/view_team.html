@@ -1,0 +1,62 @@
+{% extends "leader_layout.html" %} {% block content %}
+<div class="content-wrapper">
+  <div class="page-header">
+    <h3 class="page-title">Team</h3>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/leader">Leader</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Team</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-10 grid-margin card">
+        <div class="team--info px-3 py-3">
+            <div class="team--info--name">
+                <h4 class="card-title">Team Name</h4>
+                <p class="card-description">Leader</p>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Member Name</th>
+                      <th>Email</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-white">
+                    <tr>
+                      <td>user one</td>
+                      <td>
+                        user@example.com
+                      </td>
+                      <td>
+                        <div
+                          class="btn-group"
+                          role="group"
+                          aria-label="Basic example"
+                        >
+                          <a href="manage_users/delete_user?id=111" class="pr-2">
+                            <button type="button" class="btn btn-danger">
+                              <i class="mdi mdi-delete-variant"></i></button
+                          ></a>
+                          <a href="manage_users/delete_user?id=111">
+                            <button type="button" class="btn btn-secondary">
+                              <i class="mdi mdi-eye"></i></button
+                          ></a>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

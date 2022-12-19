@@ -10,7 +10,7 @@ date = datetime.now()
 @admin.route("/")
 def admin_home():
     # works = selectall("SELECT * FROM `works`")
-    return render_template("index.html")
+    return render_template("a_index.html")
 
 
 # user management
@@ -18,8 +18,8 @@ def admin_home():
 
 @admin.route("/manage_users")
 def manage_users():
-    # data = selectall("SELECT userid,name,email FROM `user`")
-    return render_template("manage_users.html")
+    data = selectall("select login.userid, login.type, user.name, user.email from login  join user where user.userid = login.userid;")
+    return render_template("manage_users.html" ,users=data)
 
 
 @admin.route("/manage_users/new_user")
@@ -29,41 +29,58 @@ def new_user():
 
 @admin.route("/add_user", methods=["post"])
 def add_user():
+    username = request.form["username"]
     name = request.form["name"]
-    gender = request.form["gender"]
-    place = request.form["place"]
-    pin = request.form["pin"]
-    post = request.form["post"]
     email = request.form["email"]
     phone = request.form["phone"]
+    pin = request.form["pin"]
+    post = request.form["post"]
     address = request.form["address"]
+    gender = request.form["gender"]
+    place = request.form["place"]
     password = request.form["password"]
-    qry = "insert into login values(Null,%s,%s,'leader')"
-    val = (name, password)
+    role = request.form['role']
+    qry = "insert into login values(Null,%s,%s,%s)"
+    val = (username, password,role)
     id = iud(qry, val)
     qry1 = "insert  into user values (%s,%s,%s,%s,%s,%s,%s,%s,%s)"
     val1 = (id, name, email, address, post, pin, phone, place, gender)
     iud(qry1, val1)
-    return """<script>alert("added");window.location="/admin/manage_leaders"</script>"""
+    return """<script>alert("added");window.location="/admin/manage_users"</script>"""
 
 
 @admin.route("/manage_users/edit_user")
 def edit_user():
-    # id = request.args.get("id")
-    # session["id"] = id
-    # qry = "SELECT * FROM `leader` WHERE `id`=%s"
-    # val = id
-    # res = selectone(qry, val)
-    return render_template("edit_user.html")
-
-
-@admin.route("/user/delete")
-def delete_leader():
     id = request.args.get("id")
-    qry = "DELETE FROM `leader` WHERE `id`=%s"
+    qry = "SELECT * FROM `user` WHERE `userid`=%s"
+    res = selectone(qry, id)
+    return render_template("edit_user.html", user=res)
+
+
+@admin.route("/edit_user", methods=["post"])
+def update_user():
+    id = request.args.get("id")
+    name = request.form["name"]
+    email = request.form["email"]
+    phone = request.form["phone"]
+    pin = request.form["pin"]
+    post = request.form["post"]
+    address = request.form["address"]
+    gender = request.form["gender"]
+    place = request.form["place"]
+    qry1 = "update user  set name=%s, email=%s, address=%s, post=%s, pin=%s, phone=%s, place=%s,gender=%s where userid=%s"
+    val1 = (name, email, address, post, pin, phone, place, gender,id)
+    iud(qry1, val1)
+    return """<script>alert("Success");window.location="/admin/manage_users"</script>"""
+
+
+@admin.route("/manage_users/delete_user")
+def delete_user():
+    id = request.args.get("id")
+    qry = "delete user, login from user inner join login on user.userid = login.userid where login.userid = %s"
     iud(qry, id)
     return (
-        """<script>alert("deleted");window.location="/admin/manage_leaders"</script>"""
+        """<script>alert("deleted");window.location="/admin/manage_users"</script>"""
     )
 
 

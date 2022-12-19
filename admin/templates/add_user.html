@@ -12,24 +12,24 @@
     </nav>
   </div>
   <div class="row d-flex justify-content-center">
-    <div class="col-md-6 grid-margin stretch-card">
+    <div class="col-lg-10 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Add User</h4>
           <p class="card-description">Enter User details</p>
-          <form class="forms-sample">
-            <!-- username -->
+          <form action="/admin/add_user" method="post">
+            <!-- name -->
             <div class="form-group">
-              <label for="exampleInputUsername1">Username</label>
+              <label for="exampleInputUsername1">Name</label>
               <input
                 type="text"
                 class="form-control text-light"
-                id="exampleInputUsername1"
-                placeholder="Username"
+                placeholder="Enter Name"
+                name="name"
               />
             </div>
 
-            <!-- email phone -->
+            <!-- email phone pin post-->
             <div class="container px-0">
               <div class="row">
                 <div class="form-group col">
@@ -38,6 +38,7 @@
                     type="text"
                     class="form-control text-light"
                     placeholder="Email"
+                    name="email"
                   />
                 </div>
                 <div class="form-group col">
@@ -46,6 +47,7 @@
                     type="number"
                     class="form-control text-light"
                     placeholder="Phone"
+                    name="phone"
                   />
                 </div>
               </div>
@@ -58,6 +60,7 @@
                     type="number"
                     class="form-control text-light"
                     placeholder="Pin"
+                    name="pin"
                   />
                 </div>
                 <div class="form-group col">
@@ -66,6 +69,7 @@
                     type="text"
                     class="form-control text-light"
                     placeholder="Post"
+                    name="post"
                   />
                 </div>
               </div>
@@ -77,44 +81,60 @@
                 class="form-control text-light"
                 placeholder="Address"
                 rows="4"
+                name="address"
               ></textarea>
             </div>
-            <!-- address -->
+            <!-- place -->
             <div class="form-group">
               <label for="exampleInputEmail1">Place</label>
               <input
                 type="text"
                 class="form-control text-light"
                 placeholder="Place"
+                name="place"
               />
             </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input
-                type="password"
-                class="form-control text-light"
-                id="exampleInputPassword1"
-                placeholder="Password"
-              />
+
+            <div class="container px-0">
+              <div class="row">
+                <div class="form-group col">
+                  <label>Username</label>
+                  <input
+                    type="username"
+                    class="form-control text-light"
+                    placeholder="Username"
+                    name="username"
+                  />
+                </div>
+                <div class="form-group col">
+                  <label>Password</label>
+                  <input
+                    type="password"
+                    class="form-control text-light"
+                    placeholder="Password"
+                    name="password"
+                  />
+                </div>
+              </div>
             </div>
             <div class="container px-0">
               <div class="row">
                 <div class="form-group col">
                   <label class="col-form-label">Gender</label>
                   <div class="px-0">
-                    <select class="form-control">
-                      <option>Male</option>
-                      <option>Female</option>
-                      <option>Other</option>
+                    <select class="form-control" name="gender">
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
                     </select>
                   </div>
                 </div>
                 <div class="form-group col">
                   <label class="col-form-label">Role</label>
                   <div class="px-0">
-                    <select class="form-control">
-                      <option>Leader</option>
-                      <option>Member</option>
+                    <select class="form-control" name="role">
+                      <option value="leader">Leader</option>
+                      <option value="member">Member</option>
                     </select>
                   </div>
                 </div>

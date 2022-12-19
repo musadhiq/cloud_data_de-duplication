@@ -9,7 +9,7 @@ date = datetime.now()
 
 @leader.route("/")
 def leader_home():
-    return render_template("leader_home.html")
+    return render_template("l_index.html")
 
 
 @leader.route("/edit_profile")
@@ -106,6 +106,13 @@ def edit_member1():
         """<script>alert("success");window.location="/leader/manage_members"</script>"""
     )
 
+# works
+
+@leader.route("/get_works")
+def get_works():
+    return render_template("get_works.html")
+
+
 
 @leader.route("/assign_works")
 def leader_works():
@@ -137,6 +144,11 @@ def assign_to_mem():
     val = (memberid, workid, date)
     iud(qry, val)
     return """<script>alert("assigned");window.location="/leader"</script>"""
+
+
+@leader.route("/view_team")
+def view_team():
+    return render_template("view_team.html")
 
 
 @leader.route("/view_feedbacks")
